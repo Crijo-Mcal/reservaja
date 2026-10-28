@@ -25,7 +25,8 @@ class Appointments_controller
     public function alldata(): ?array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
@@ -42,7 +43,8 @@ class Appointments_controller
     public function filter(): ?array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
@@ -69,7 +71,8 @@ class Appointments_controller
     public function update_appointment(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];

@@ -26,7 +26,8 @@ class Schedules_controller
     {
 
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];
@@ -44,7 +45,8 @@ class Schedules_controller
     {
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];
@@ -101,7 +103,8 @@ class Schedules_controller
     public function updateSchedule()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];
@@ -155,7 +158,8 @@ class Schedules_controller
     public function deleteSchedule()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];

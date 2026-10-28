@@ -27,6 +27,11 @@ class Profile_controller
 
     public function alldata(): ?array
     {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            http_response_code(405);
+            exit();
+        }
+
         $user = $_SESSION['user'] ?? [];
 
         if (!$user || ($user['role'] ?? '') !== 'professional') {
@@ -40,7 +45,8 @@ class Profile_controller
     public function update_Professional(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
@@ -81,7 +87,8 @@ class Profile_controller
     public function update_Company(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
@@ -121,7 +128,8 @@ class Profile_controller
     public function setProfileImage(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
@@ -155,7 +163,8 @@ class Profile_controller
     public function setCompanyLogo(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];

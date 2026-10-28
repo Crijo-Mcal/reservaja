@@ -24,7 +24,8 @@ class Ratings_controller
     {
 
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];
@@ -45,7 +46,8 @@ class Ratings_controller
     {
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $data_input = [
@@ -75,7 +77,8 @@ class Ratings_controller
     {
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];

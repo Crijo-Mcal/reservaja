@@ -18,13 +18,19 @@ class Payments_controller
     public function alldata(): ?array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
 
         if (!$user || ($user['role'] ?? '') !== 'professional') {
             header('Location: ' . $this->appBasePath . '/html/auth/login.php');
+            exit();
+        }
+
+        if (($user['roleInCompany'] ?? '') !== 'owner') {
+            header('Location: ' . $this->appBasePath . '/html/company/dashboard.php');
             exit();
         }
 
@@ -36,13 +42,19 @@ class Payments_controller
     public function filter(): ?array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
 
         if (!$user || ($user['role'] ?? '') !== 'professional') {
             header('Location: ' . $this->appBasePath . '/html/auth/login.php');
+            exit();
+        }
+
+        if (($user['roleInCompany'] ?? '') !== 'owner') {
+            header('Location: ' . $this->appBasePath . '/html/company/dashboard.php');
             exit();
         }
 

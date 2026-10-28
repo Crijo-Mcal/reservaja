@@ -19,7 +19,8 @@ class Clients_controller
     public function alldata(): ?array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
@@ -36,7 +37,8 @@ class Clients_controller
     public function filter(): ?array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];

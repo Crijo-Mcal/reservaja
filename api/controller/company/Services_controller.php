@@ -25,7 +25,8 @@ class Services_controller
     public function allData(): ?array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];
@@ -45,7 +46,8 @@ class Services_controller
     public function filterData(): ?array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];
@@ -67,7 +69,8 @@ class Services_controller
     public function addNewService(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];
@@ -106,7 +109,8 @@ class Services_controller
     public function updateService(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];
@@ -146,8 +150,8 @@ class Services_controller
     public function deleteService(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $User = $_SESSION['user'] ?? [];

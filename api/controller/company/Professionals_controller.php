@@ -23,12 +23,18 @@ class Professionals_controller
     {
 
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
-        $User = $_SESSION['user'] ?? [];
-        if (!isset($User) || $User['role'] !== 'professional') {
-            header('Location:' . ($this->appBasePath ?? '') . '/html/auth/login.php');
+        $user = $_SESSION['user'] ?? [];
+        if (!$user || ($user['role'] ?? '') !== 'professional') {
+            header('Location: ' . $this->appBasePath . '/html/auth/login.php');
+            exit();
+        }
+
+        if (($user['roleInCompany'] ?? '') !== 'owner') {
+            header('Location: ' . $this->appBasePath . '/html/company/dashboard.php');
             exit();
         }
 
@@ -40,12 +46,18 @@ class Professionals_controller
     public function update_Professional(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? [];
         if (!$user || ($user['role'] ?? '') !== 'professional') {
             header('Location: ' . $this->appBasePath . '/html/auth/login.php');
+            exit();
+        }
+
+        if (($user['roleInCompany'] ?? '') !== 'owner') {
+            header('Location: ' . $this->appBasePath . '/html/company/dashboard.php');
             exit();
         }
 
