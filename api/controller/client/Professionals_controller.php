@@ -16,7 +16,8 @@ class Professionals_controller
     public function allData()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
        

@@ -18,6 +18,11 @@ private string $appBasePath;
 
     public function alldata(): array
     {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            http_response_code(405);
+            exit();
+        }
+
         $user = $_SESSION['user'] ?? [];
 
         if (!$user || ($user['role'] ?? '') !== 'client') {

@@ -19,10 +19,28 @@ class Profile_controller
         $this->appBasePath = $appBasePath;
     }
 
+    public function showData(): array
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            http_response_code(405);
+            exit();
+        }
+
+        $user = $_SESSION['user'] ?? null;
+
+        if (!$user || ($user['role'] ?? '') !== 'client') {
+            header('Location: ' . $this->appBasePath . '/html/auth/login.php');
+            exit();
+        }
+
+        return [];
+    }
+
     public function updateData(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $user = $_SESSION['user'] ?? null;
@@ -56,6 +74,10 @@ class Profile_controller
         }
 
         $this->profile_service->updateData($user['id'], $dataInput);
+
+        // Atualizar a sessão com os dados do perfil guardados
+        $profileData = $this->profile_service->profileData($user['email']);
+        Session::set('user', array_merge($user, $profileData));
 
         header('Location: ' . $this->appBasePath . '/html/client/profile.php');
         exit();

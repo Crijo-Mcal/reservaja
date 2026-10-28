@@ -24,7 +24,8 @@ class Booking_controller
     public function insertData()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $data = [
@@ -106,7 +107,8 @@ class Booking_controller
     public function alldata(): array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [];
+            http_response_code(405);
+            exit();
         }
 
         $professional_id = $_GET['professional_id'] ?? '';

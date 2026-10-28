@@ -8,10 +8,10 @@ use public\api\controller\client\Profile_controller;
 
 /* ---------- GET ---------- */
 
-// Página do perfil
+// Página do perfil (apenas clientes autenticados)
 $router->get(
     '/html/client/profile.php',
-    null,
+    [Profile_controller::class,'showData'],
     dirname(__DIR__,2) . '/html/client/profile.php'
 );
 

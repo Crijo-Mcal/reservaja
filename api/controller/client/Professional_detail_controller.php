@@ -19,7 +19,12 @@ class Professional_detail_controller
 
     public function showData()
     {
-        if ($_SERVER['REQUEST_METHOD'] !== 'GET' || !$_GET['professional_id']) {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            http_response_code(405);
+            exit();
+        }
+
+        if (!$_GET['professional_id']) {
             header('Location:' . ($this->appBasePath ?? '') . '/html/client/professionals.php');
             exit();
         }

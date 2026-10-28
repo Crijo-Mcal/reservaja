@@ -24,7 +24,8 @@ class Payment_controller
     public function insertData()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' ) {
-            return;
+            http_response_code(405);
+            exit();
         }
 
         $User = !isset($_SESSION['user']) || $_SESSION['user'] == '' ? null : $_SESSION['user'];
