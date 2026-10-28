@@ -5,7 +5,7 @@ namespace public\api\services\client;
 use public\api\models\Professional;
 use public\api\models\Ratings;
 
-class Professional_search_service
+class Professionals_service
 {
     private Professional $professionalTable;
     private Ratings $ratingsTable;

@@ -2,15 +2,15 @@
 
 namespace public\api\controller\client;
 
-use public\api\services\client\Professional_search_service;
+use public\api\services\client\Professionals_service;
 
-class Professional_search_controller
+class Professionals_controller
 {
-    private Professional_search_service $professional_search_service;
+    private Professionals_service $professional_search_service;
 
     public function __construct()
     {
-        $this->professional_search_service = new Professional_search_service;
+        $this->professional_search_service = new Professionals_service;
     }
 
     public function allData()
