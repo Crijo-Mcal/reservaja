@@ -5,7 +5,6 @@ namespace public\api\controller\company;
 use public\api\services\company\Schedules_service;
 use public\api\validation\company\Schedule_validation;
 use public\api\utility\Session;
-use Stripe\ApiResponse;
 
 class Schedules_controller
 {

@@ -3,8 +3,6 @@
 namespace public\api\controller\webhook;
 
 use public\api\services\webhook\CallbackIfthenpay_service;
-use Stripe\Webhook;
-use Stripe\Exception\SignatureVerificationException;
 
 class CallbackIfthenpay_controller
 {

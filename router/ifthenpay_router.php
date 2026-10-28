@@ -1,13 +1,14 @@
 <?php
 
-use public\api\controller\webhook\StripeWebhook_controller;
+/*
+ * Rotas das notificações do fornecedor de pagamento (Ifthenpay).
+ */
+
 use public\api\controller\webhook\CallbackIfthenpay_controller;
 
-$router->post(
-    '/stripe/webhook',
-    [StripeWebhook_controller::class, 'updateData']
-);
+/* ---------- GET ---------- */
 
+// Callback da Ifthenpay: atualiza o estado do pagamento
 $router->get(
     '/ifthenpay/callback',
     [CallbackIfthenpay_controller::class, 'updateData'],

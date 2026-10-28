@@ -36,28 +36,6 @@ class Update
         ]);
     }
 
-    public function updateAsFailed(array $data): void
-    {
-        $sql = "
-        UPDATE payments
-        SET
-            payment_method = :payment_method,
-            stripe_payment_intent_id = :stripe_payment_intent_id,
-            paid_at = :paid_at,
-            status = 'failed'
-        WHERE id = :payment_id
-        ";
-
-        $stmt = $this->pdo->prepare($sql);
-
-        $stmt->execute([
-            'payment_id' => $data['payment_id'],
-            'payment_method' => $data['payment_method'],
-            'stripe_payment_intent_id' => $data['stripe_payment_intent_id'],
-            'paid_at' => $data['paid_at']
-        ]);
-    }
-
     public function updatePaymentFromIfthepay(array $data): void
     {
         $sql = "

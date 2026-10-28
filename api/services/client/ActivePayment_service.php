@@ -2,10 +2,8 @@
 
 namespace public\api\services\client;
 
-use Stripe\Stripe;
 use public\api\models\payments;
 use public\api\models\bookings;
-use Stripe\Checkout\Session;
 
 class ActivePayment_service
 {

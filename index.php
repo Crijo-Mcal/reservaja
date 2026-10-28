@@ -49,7 +49,7 @@ require_once __DIR__ . '/router/client/home_router.php';
 require_once __DIR__ . '/router/client/activePayment_router.php';
 
 require_once __DIR__ . '/router/auth_router.php';
-require_once __DIR__ . '/router/callback_router.php';
+require_once __DIR__ . '/router/ifthenpay_router.php';
 
 
 $router->dispatch();

@@ -1,45 +1,56 @@
 <?php
 
+/*
+ * Rotas de autenticação: login, registo de cliente e de profissional, e logout.
+ */
+
 use public\api\controller\auth\Auth_controller;
 
-    $router->get(
-        '/html/auth/login.php',
-        null,
-        dirname(__DIR__,1). '/html/auth/logIn.php'
-    );
+/* ---------- GET: páginas ---------- */
 
-    $router->get(
-        '/html/auth/client_singUp.php',
-        
-        null,
-        dirname(__DIR__,1). '/html/auth/client_singUp.php'
-    );
+// Página de login
+$router->get(
+    '/html/auth/login.php',
+    null,
+    dirname(__DIR__,1). '/html/auth/logIn.php'
+);
 
-    $router->get(
-        '/html/auth/employee_singUp.php',
-        null,
-        dirname(__DIR__,1). '/html/auth/employee_singUp.php'
-    );
+// Página de registo de cliente
+$router->get(
+    '/html/auth/client_singUp.php',
+    null,
+    dirname(__DIR__,1). '/html/auth/client_singUp.php'
+);
 
-   
-    $router->post(
-        '/auth/client_register',
-        [Auth_Controller::class, 'clientSingup']
-    );
+// Página de registo de profissional
+$router->get(
+    '/html/auth/employee_singUp.php',
+    null,
+    dirname(__DIR__,1). '/html/auth/employee_singUp.php'
+);
 
-    $router->post(
-        '/auth/employee_register',
-        [Auth_Controller::class, 'employeeSingup']
-    );
+/* ---------- POST: ações ---------- */
 
-    $router->post(
-        '/auth/login',
-        [Auth_Controller::class, 'logIn']
-    );
+// Registar um novo cliente
+$router->post(
+    '/auth/client_register',
+    [Auth_Controller::class, 'clientSingup']
+);
 
-    $router->post(
-        '/auth/logout',
-        [Auth_Controller::class, 'logOut']
-    );
+// Registar um novo profissional
+$router->post(
+    '/auth/employee_register',
+    [Auth_Controller::class, 'employeeSingup']
+);
 
+// Iniciar sessão
+$router->post(
+    '/auth/login',
+    [Auth_Controller::class, 'logIn']
+);
 
+// Terminar sessão
+$router->post(
+    '/auth/logout',
+    [Auth_Controller::class, 'logOut']
+);
