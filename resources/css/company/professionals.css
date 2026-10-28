@@ -1,9 +1,11 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/text.css");
 @import url("../utilities/animation.css");
 @import url("../components/tag.css");
 
+/* Botão principal */
 .cs-btn-primary {
     background-color: #0D9488;
     color: #FFFFFF;
@@ -17,6 +19,7 @@
     border-color: #0F766E;
 }
 
+/* Lista de profissionais */
 .professional-list {
     overflow: hidden;
     background: var(--color3);
@@ -46,6 +49,7 @@
     white-space: nowrap;
 }
 
+/* Cartão do profissional */
 .professional-card {
     border-color: var(--color4);
     transition: border-color 0.2s ease;
@@ -75,6 +79,7 @@
     overflow-wrap: anywhere;
 }
 
+/* Estado do profissional */
 .professional-status-active {
     display: inline-flex;
     align-items: center;
@@ -93,6 +98,7 @@
     border-radius: 50%;
 }
 
+/* Detalhes do profissional */
 .professional-detail-section+.professional-detail-section {
     padding-top: 18px;
     border-top: 1px solid var(--color4);
@@ -107,6 +113,7 @@
     border-bottom: 0;
 }
 
+/* Etiqueta de serviço */
 .professional-service-badge {
     padding: 8px 10px;
     color: var(--color1);
@@ -117,11 +124,13 @@
 }
 
 #professionalFilter:focus,
+/* Pesquisa */
 input[name="search"]:focus {
     border-color: var(--color2);
     box-shadow: 0 0 0 0.2rem rgb(0 0 0 / 5%);
 }
 
+/* Responsivo */
 @media (max-width: 575.98px) {
     .professional-list-header {
         padding: 17px 16px;

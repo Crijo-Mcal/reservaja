@@ -7,7 +7,6 @@ if (count($payment_data) <= 0) {
     exit();
 }
 
-
 $error = $_SESSION['error'] ?? null;
 
 unset($_SESSION['error']);
@@ -63,10 +62,12 @@ $remainingAmount =
 
 <body class="bg-light d-flex flex-column min-vh-100">
 
+    <!-- Barra de navegação -->
     <?php require(__DIR__ . '/../../layout/nav.php') ?>
 
     <main class="flex-grow-1 d-flex flex-column justify-content-center align-items-center">
 
+        <!-- Mensagem de erro -->
         <?php if (!empty($error['invalidPayment'])): ?>
 
             <div class="container p-3">
@@ -96,7 +97,7 @@ $remainingAmount =
 
             <div class="payment-container mx-auto">
 
-                <!-- PAGE HEADER -->
+                <!-- CABEÇALHO DA PÁGINA -->
 
                 <div class="mb-4">
 
@@ -117,7 +118,7 @@ $remainingAmount =
 
                     <div class="row g-3">
 
-                        <!-- LEFT COLUMN -->
+                        <!-- COLUNA ESQUERDA -->
 
                         <div class="col-12 col-lg-7">
 
@@ -325,7 +326,7 @@ $remainingAmount =
 
                         </div>
 
-                        <!-- RIGHT COLUMN -->
+                        <!-- COLUNA DIREITA -->
 
                         <div class="col-12 col-lg-5">
 
@@ -341,7 +342,7 @@ $remainingAmount =
 
                                 <div class="payment-card-body">
 
-                                    <!-- PRICE -->
+                                    <!-- PREÇO -->
 
                                     <div class="price-row">
 
@@ -360,7 +361,7 @@ $remainingAmount =
 
                                     </div>
 
-                                    <!-- VAT -->
+                                    <!-- IVA -->
 
                                     <div class="price-row">
 
@@ -376,7 +377,7 @@ $remainingAmount =
 
                                     </div>
 
-                                    <!-- ADVANCE PAYMENT -->
+                                    <!-- PAGAMENTO ANTECIPADO -->
 
                                     <div class="price-row">
 
@@ -413,7 +414,7 @@ $remainingAmount =
 
                                     </div>
 
-                                    <!-- REMAINING -->
+                                    <!-- VALOR RESTANTE -->
 
                                     <div class="remaining-row">
 
@@ -454,7 +455,7 @@ $remainingAmount =
 
                                     </div>
 
-                                    <!-- HIDDEN BOOKING DATA -->
+                                    <!-- DADOS OCULTOS DA RESERVA -->
 
                                     <input
                                         type="hidden"
@@ -542,6 +543,7 @@ $remainingAmount =
 
     </main>
 
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/bootstrap/bootstrap.min.js"></script>
 </body>
 

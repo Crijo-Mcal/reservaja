@@ -1,7 +1,7 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/animation.css");
-
 
 /* Pesquisa */
 .search-section {
@@ -35,7 +35,7 @@
     font-weight: 500;
 }
 
-/* Card profissional */
+/* Cartão do profissional */
 .professional-card {
     overflow: hidden;
     border: 1px solid #e2e8f0;
@@ -87,7 +87,7 @@
     line-height: 1.4;
 }
 
-/* Rating */
+/* Avaliação */
 .professional-rating {
     display: inline-flex;
     align-items: center;
@@ -194,6 +194,7 @@
     font-size: 14px;
 }
 
+/* Responsivo */
 @media (max-width: 576px) {
     .professional-image {
         height: 230px;
@@ -204,9 +205,8 @@
     }
 }
 
-
-/* modal rating */
-/* Modal rating */
+/* Modal de avaliação */
+/* Modal de avaliação */
 .rating-modal {
     border: 0;
     border-radius: 16px;
@@ -226,6 +226,7 @@
     line-height: 1.4;
 }
 
+/* Estrelas da avaliação */
 #ratingModal .rating-stars {
     display: flex;
     align-items: center;
@@ -266,6 +267,7 @@
     font-size: 12px;
 }
 
+/* Comentário da avaliação */
 #ratingModal .rating-description {
     min-height: 80px;
     padding: .65rem .75rem;

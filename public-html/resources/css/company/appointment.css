@@ -1,14 +1,16 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/text.css");
 @import url("../utilities/animation.css");
 @import url("../components/tag.css");
 
-
+/* Fundo principal */
 .cs-bg-primary {
     background-color: var(--color1);
 }
 
+/* Botão principal */
 .cs-btn-primary {
     background-color: #0D9488;
     color: #FFFFFF;
@@ -22,6 +24,7 @@
     border-color: #0F766E;
 }
 
+/* Cartões de resumo */
 .cs-summary-card {
     min-height: 105px;
 }
@@ -36,6 +39,7 @@
     color: var(--color-succsse-1);
 }
 
+/* Filtros */
 .cs-appointment-filter {
     background-color: var(--color3);
     border: 1px solid var(--color4);
@@ -51,6 +55,7 @@
     border: 1px solid var(--color4);
 }
 
+/* Tabela de agendamentos */
 .appointment-table thead th {
     padding-top: 0.9rem;
     padding-bottom: 0.9rem;

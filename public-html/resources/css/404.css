@@ -1,6 +1,8 @@
+/* Importações */
 @import url("../bootstrap/bootstrap.min.css");
 @import url("variavel.css");
 
+/* Estrutura da página */
 .error-404-page {
     margin: 0;
     background-color: var(--color3);
@@ -19,6 +21,7 @@
     text-align: center;
 }
 
+/* Código e título do erro */
 .error-404-code {
     display: block;
     margin-bottom: 0.5rem;
@@ -36,6 +39,7 @@
     font-weight: 500;
 }
 
+/* Botão */
 .error-404-btn {
     display: inline-flex;
     align-items: center;
@@ -58,6 +62,7 @@
     border-color: var(--color1);
 }
 
+/* Responsivo */
 @media (max-width: 767.98px) {
     .error-404-code {
         font-size: 4.5rem;

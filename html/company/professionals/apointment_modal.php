@@ -1,3 +1,4 @@
+<!-- Modal de agendamentos do profissional -->
 <div class="modal fade" id="professionalAppointmentsModal" tabindex="-1" aria-labelledby="professionalAppointmentsLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content border-0">
@@ -16,6 +17,7 @@
     </div>
 </div>
 
+<!-- Estilos do modal -->
 <style>
     #professionalAppointmentsModal .appointment-card {
         border: 1px solid #E2E8F0;
@@ -59,4 +61,3 @@
         color: #475569;
     }
 </style>
-

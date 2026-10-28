@@ -25,8 +25,10 @@ $data = $dataBase ?? [];
 
 <body>
 
+    <!-- Barra de navegação -->
     <?php require(__DIR__ . '/../layout/nav.php') ?>
 
+    <!-- Conteúdo principal: histórico de agendamentos -->
     <main class="container py-5">
 
         <h1 class="history-title mb-4">
@@ -35,6 +37,7 @@ $data = $dataBase ?? [];
 
         <?php if (!empty($data)): ?>
 
+            <!-- Lista de agendamentos -->
             <div class="d-flex flex-column gap-2 cs-fadeIn-y2">
 
                 <?php foreach ($data as $appointment): ?>
@@ -96,6 +99,7 @@ $data = $dataBase ?? [];
 
         <?php else: ?>
 
+            <!-- Estado vazio -->
             <div class="text-center py-5 px-3 border rounded-3">
                 <i class="bi bi-credit-card text-secondary fs-1"></i>
 
@@ -108,8 +112,7 @@ $data = $dataBase ?? [];
 
     </main>
 
-
-
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/js/bootstrap.min.js"></script>
 
 </body>

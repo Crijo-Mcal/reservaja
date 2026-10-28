@@ -1,17 +1,21 @@
+/* Importações */
 @import url("../../../bootstrap/bootstrap.min.css");
 @import url("../../variavel.css");
 @import url("../../utilities/animation.css");
 
+/* Base da página */
 body {
     font-family: var(--font);
 }
 
+/* Ícone de estado */
 .payment-failed-icon {
     color: var(--color-danger-1);
     font-size: 64px;
     line-height: 1;
 }
 
+/* Conteúdo e aviso */
 .payment-failed-content {
     width: 100%;
     max-width: 380px;
@@ -33,6 +37,7 @@ body {
     color: var(--color-danger-1);
 }
 
+/* Botão */
 .payment-failed-button {
     width: 100%;
     color: var(--color3);

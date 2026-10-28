@@ -1,10 +1,11 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/text.css");
 @import url("../utilities/animation.css");
 @import url("../components/tag.css");
 
-
+/* Calendário */
 .calendar-header {
     border-bottom: 1px solid #e9ecef;
 }
@@ -24,7 +25,6 @@
     font-weight: 500;
     color: var(--bs-secondary-color);
 }
-
 
 /* Dias */
 .calendar-day {
@@ -48,7 +48,6 @@
     cursor: default;
 }
 
-
 /* Número */
 .calendar-day-number {
     display: flex;
@@ -62,12 +61,10 @@
     font-weight: 400;
 }
 
-
 /* Selecionado */
 .calendar-day.selected {
     background: #e4e3e3;
 }
-
 
 /* Horário existente */
 .calendar-day.has-schedule {
@@ -90,7 +87,7 @@
     font-weight: 600;
 }
 
-/* cs-btn */
+/* Botão principal (cs-btn) */
 .cs-btn-primary {
     background-color: #0D9488;
     color: #FFFFFF;
@@ -103,7 +100,6 @@
     color: #FFFFFF;
     border-color: #0F766E;
 }
-
 
 /* Tablet */
 @media (max-width: 767.98px) {
@@ -124,7 +120,6 @@
         font-size: 0.75rem;
     }
 }
-
 
 /* Mobile */
 

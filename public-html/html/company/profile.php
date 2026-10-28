@@ -46,10 +46,12 @@ $companyLogo = $company['logo']
 
 <body>
 
+    <!-- Barra de navegação (mobile) -->
     <?php require __DIR__ . "/../layout/professional_navBar.php"; ?>
 
     <div class="d-flex">
 
+        <!-- Barra lateral -->
         <?php require __DIR__ . "/../layout/professional_sideBar.php"; ?>
 
         <main class="flex-grow-1 d-flex flex-column align-items-center gap-3 bg-body py-3">
@@ -89,6 +91,7 @@ $companyLogo = $company['logo']
                 </div>
             </div>
 
+            <!-- Dados do perfil -->
             <div class="container cs-fadeIn-y1">
 
                 <div class="row g-4">
@@ -121,7 +124,7 @@ $companyLogo = $company['logo']
 
                                         <div class="w-100">
 
-                                            <!-- Upload da fotografia -->
+                                            <!-- Carregamento da fotografia -->
                                             <input
                                                 type="file"
                                                 name="profile_image"
@@ -183,7 +186,7 @@ $companyLogo = $company['logo']
 
                                             <div class="w-100">
 
-                                                <!-- Upload do logótipo -->
+                                                <!-- Carregamento do logótipo -->
                                                 <input
                                                     type="file"
                                                     name="company_logo"
@@ -596,7 +599,7 @@ $companyLogo = $company['logo']
                                                             </div>
                                                         </div>
 
-                                                        <!-- Access Key -->
+                                                        <!-- Chave de acesso -->
                                                         <div class="col-12">
 
                                                             <label for="company_access_key" class="profile-label">
@@ -687,6 +690,7 @@ $companyLogo = $company['logo']
 
     </div>
 
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/js/bootstrap.min.js"></script>
 
     <script>

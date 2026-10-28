@@ -23,7 +23,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
 
 <body>
 
-    <!-- NavBar -->
+    <!-- Barra de navegação -->
     <?php require __DIR__ . '/../layout/nav.php'; ?>
 
     <!-- Conteúdo Principal -->
@@ -97,7 +97,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
                         </a>
                     </div>
 
-                    <!-- Login -->
+                    <!-- Iniciar sessão -->
                     <div class="col-12 mt-2">
 
                         <button
@@ -130,7 +130,8 @@ unset($_SESSION['error'], $_SESSION['oldData']);
         </div>
     </main>
 
-<script src="<?= $appBasePath ?? '' ?>/resources/bootstrap/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <script src="<?= $appBasePath ?? '' ?>/resources/bootstrap/bootstrap.min.js"></script>
 </body>
 
 </html>

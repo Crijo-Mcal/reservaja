@@ -1,3 +1,4 @@
+/* Etiquetas de estado: sucesso, perigo, aviso e neutro */
 .cs-tag-success {
     color: var(--color-succsse-1);
     background-color: var(--color-succsse-2);
@@ -7,7 +8,6 @@
     border-radius: 5px;
 }
 
-
 .cs-tag-danger {
     color: var(--color-danger-1);
     background-color: var(--color-danger-2);
@@ -16,7 +16,6 @@
     font-weight: bold;
     border-radius: 5px;
 }
-
 
 .cs-tag-warning {
     color: var(--color-warning-1);

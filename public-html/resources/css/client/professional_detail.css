@@ -1,7 +1,9 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/animation.css");
 
+/* Base da página */
 body {
     margin: 0;
     background: #f8fafc;
@@ -25,13 +27,14 @@ button {
     font-size: 12px;
 }
 
+/* Alerta */
 .rj-alert {
     border-color: var(--color-warning-2);
     background: var(--color-warning-2);
     color: var(--color1);
 }
 
-/* Professional */
+/* Profissional */
 .professional-section {
     background: var(--color1);
 }
@@ -77,7 +80,6 @@ button {
     min-width: 0;
 }
 
-
 .hero h1 {
     color: #cbd5e1;
     font-size: 28px;
@@ -90,7 +92,7 @@ button {
     font-size: 14px;
 }
 
-/* Rating */
+/* Avaliação */
 .professional-rating {
     display: flex;
     align-items: center;
@@ -117,7 +119,7 @@ button {
     line-height: 1;
 }
 
-/* Professional contact */
+/* Contacto do profissional */
 .professional-contact {
     display: flex;
     flex-direction: column;
@@ -144,7 +146,7 @@ button {
     font-weight: 500;
 }
 
-/* Professional description */
+/* Descrição do profissional */
 .hero-description {
     max-width: 760px;
     border-top: 1px solid rgba(255, 255, 255, .07);
@@ -153,7 +155,7 @@ button {
     line-height: 1.7;
 }
 
-/* Quick navigation */
+/* Navegação rápida */
 .professional-navigation {
     display: flex;
     align-items: center;
@@ -184,7 +186,7 @@ button {
     color: #fff;
 }
 
-/* Sections */
+/* Secções */
 .content-section {
     scroll-margin-top: 1.5rem;
 }
@@ -221,7 +223,7 @@ button {
     letter-spacing: -.01em;
 }
 
-/* Company */
+/* Empresa */
 .company-layout {
     overflow: hidden;
     border: 1px solid #e5eaf0;
@@ -296,7 +298,7 @@ button {
     font-weight: 400;
 }
 
-/* Services */
+/* Serviços */
 .service-card {
     border: 1px solid #e2e8f0;
     border-radius: .9rem;
@@ -378,7 +380,7 @@ button {
     background: #e2e8f0;
 }
 
-/* Service actions */
+/* Ações do serviço */
 .service-details,
 .service-select {
     min-height: 38px;
@@ -416,7 +418,7 @@ button {
     opacity: .9;
 }
 
-/* Schedule */
+/* Horários */
 .schedule-item {
     min-width: 0;
     border: 1px solid #e5eaf0;
@@ -476,7 +478,7 @@ button {
     background: #e5eaf0;
 }
 
-/* Empty state */
+/* Estado vazio */
 .empty-state {
     display: flex;
     align-items: center;
@@ -492,7 +494,7 @@ button {
     font-size: 14px;
 }
 
-/* Service modal */
+/* Modal do serviço */
 .service-modal {
     overflow: hidden;
     border: 0;
@@ -561,7 +563,7 @@ button {
     opacity: .9;
 }
 
-/* Responsive */
+/* Responsivo */
 @media (max-width: 767.98px) {
     .professional-header {
         display: block;

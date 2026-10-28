@@ -34,13 +34,15 @@ $roleLabels = [
 </head>
 
 <body>
+    <!-- Barra de navegação (mobile) -->
     <?php require(__DIR__ . "/../layout/professional_navBar.php") ?>
 
     <div class="d-flex">
+        <!-- Barra lateral -->
         <?php require(__DIR__ . "/../layout/professional_sideBar.php") ?>
 
         <main class="flex-grow-1 d-flex flex-column align-items-center gap-3 bg-body py-3">
-            <!-- Header -->
+            <!-- Cabeçalho -->
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
@@ -74,10 +76,10 @@ $roleLabels = [
                 </div>
             </div>
 
-            <!-- Summary -->
+            <!-- Resumo -->
             <div class="container cs-fadeIn-y1">
                 <div class="row g-3">
-                    <!-- Today's appointments -->
+                    <!-- Agendamentos de hoje -->
                     <div class="col-12 col-sm-6 <?= $isOwner ? 'col-xl-3' : 'col-xl-4' ?>">
                         <div class="card cs-shadow border-0 h-100 cs-summary-today">
                             <div class="card-body p-3">
@@ -92,7 +94,7 @@ $roleLabels = [
                         </div>
                     </div>
 
-                    <!-- Scheduled appointments -->
+                    <!-- Agendamentos marcados -->
                     <div class="col-12 col-sm-6 <?= $isOwner ? 'col-xl-3' : 'col-xl-4' ?>">
                         <div class="card cs-shadow border-0 h-100 cs-summary-light">
                             <div class="card-body p-3">
@@ -107,7 +109,7 @@ $roleLabels = [
                         </div>
                     </div>
 
-                    <!-- Revenue: owner only -->
+                    <!-- Receita: apenas proprietário -->
                     <?php if ($isOwner): ?>
                         <div class="col-12 col-sm-6 col-xl-3">
                             <div class="card cs-shadow border-0 h-100 cs-summary-light">
@@ -129,7 +131,7 @@ $roleLabels = [
                         </div>
                     <?php endif; ?>
 
-                    <!-- Ratings -->
+                    <!-- Avaliações -->
                     <div class="col-12 col-sm-6 <?= $isOwner ? 'col-xl-3' : 'col-xl-4' ?>">
                         <div class="card cs-shadow border-0 h-100 cs-summary-light">
                             <div class="card-body p-3">
@@ -151,10 +153,10 @@ $roleLabels = [
                 </div>
             </div>
 
-            <!-- Appointments + Payment status -->
+            <!-- Agendamentos + Estado dos pagamentos -->
             <div class="container cs-fadeIn-y1">
                 <div class="row g-3">
-                    <!-- Today's appointments -->
+                    <!-- Agendamentos de hoje -->
                     <div class="<?= $isOwner ? 'col-12 col-xl-8' : 'col-12' ?> cs-fadeIn-x1">
                         <div class="card cs-shadow h-100">
                             <div class="card-header py-3 px-4 cs-bg-primary cs-text-1">
@@ -233,7 +235,7 @@ $roleLabels = [
                         </div>
                     </div>
 
-                    <!-- Payment status: owner only -->
+                    <!-- Estado dos pagamentos: apenas proprietário -->
                     <?php if ($isOwner && !empty($doughnutValue['pago'])): ?>
                         <div class="col-12 col-xl-4">
                             <div class="card cs-shadow h-100 cs-fadeIn-x2">
@@ -255,7 +257,7 @@ $roleLabels = [
                 </div>
             </div>
 
-            <!-- Revenue chart: owner only -->
+            <!-- Gráfico de receitas: apenas proprietário -->
             <?php if ($isOwner): ?>
                 <div class="container cs-fadeIn-y2">
                     <div class="row g-3">
@@ -276,11 +278,11 @@ $roleLabels = [
                 </div>
             <?php endif; ?>
 
-            <!-- Services + Clients: owner only -->
+            <!-- Serviços + Clientes: apenas proprietário -->
             <?php if ($isOwner): ?>
                 <div class="container">
                     <div class="row g-3">
-                        <!-- Most reserved services -->
+                        <!-- Serviços mais reservados -->
                         <div class="col-12 col-lg-6 cs-fadeIn-x1">
                             <div class="card cs-shadow h-100">
                                 <div class="card-header py-3 px-4 cs-bg-primary cs-text-1">
@@ -331,7 +333,7 @@ $roleLabels = [
                             </div>
                         </div>
 
-                        <!-- Recent clients -->
+                        <!-- Clientes recentes -->
                         <div class="col-12 col-lg-6 cs-fadeIn-x2">
                             <div class="card cs-shadow h-100">
                                 <div class="card-header py-3 px-4 cs-bg-primary cs-text-1">
@@ -431,9 +433,11 @@ $roleLabels = [
         </main>
     </div>
 
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/js/bootstrap.min.js"></script>
 
     <?php if ($isOwner): ?>
+        <!-- Gráficos (apenas proprietário) -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <script>

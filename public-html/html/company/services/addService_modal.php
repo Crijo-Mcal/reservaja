@@ -1,3 +1,4 @@
+<!-- Modal para adicionar serviço -->
 <div
     class="modal fade"
     id="addServiceModal"
@@ -9,7 +10,7 @@
 
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
-            <!-- Header -->
+            <!-- Cabeçalho -->
             <div class="modal-header px-4 py-3 border-bottom">
 
                 <div>
@@ -33,20 +34,18 @@
 
             </div>
 
-
-            <!-- Form -->
+            <!-- Formulário -->
             <form
                 method="POST"
                 action="<?= $appBasePath ?? '' ?>/company/services/addnewservice">
 
-                <!-- Professional ID -->
+                <!-- ID do profissional -->
                 <input
                     type="hidden"
                     name="professional_id"
                     value="<?= $_SESSION['user']['id'] ?>">
 
-
-                <!-- Body -->
+                <!-- Corpo -->
                 <div class="modal-body px-4 py-3">
 
                     <!-- Nome -->
@@ -67,7 +66,6 @@
                             autocomplete="off">
 
                     </div>
-
 
                     <!-- Estado + Duração -->
                     <div class="row g-3 mb-3">
@@ -160,7 +158,6 @@
                     <!-- Pagamento antecipado + IVA -->
                     <div class="row g-3 mb-3">
 
-
                         <!-- IVA -->
                         <div class="col-6">
 
@@ -180,7 +177,7 @@
                                     min="0"
                                     max="100"
                                     step="0.01"
-                                    value="0"> 
+                                    value="0">
                                 <span class="input-group-text">
                                     %
                                 </span>
@@ -239,8 +236,7 @@
 
                 </div>
 
-
-                <!-- Footer -->
+                <!-- Rodapé -->
                 <div class="modal-footer px-4 py-3 bg-body-tertiary border-top">
 
                     <button

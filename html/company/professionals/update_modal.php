@@ -1,5 +1,5 @@
 
-<!-- Update Modal -->
+<!-- Modal de atualização -->
 <div class="modal fade" id="professionalUpdateModal" tabindex="-1" aria-labelledby="professionalUpdateLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -42,7 +42,7 @@
                         <textarea class="form-control form-control-sm" name="description" id="updateDescription" rows="3" maxlength="1000"></textarea>
                     </div>
 
-                    <!-- Sensitive Role Setting -->
+                    <!-- Definição da função (dados sensíveis) -->
                     <div class="p-3 rounded border border-success bg-success-subtle">
                         <label for="updateRole" class="form-label small fw-semibold text-success">
                             Função — Definição sensível
@@ -70,4 +70,3 @@
         </div>
     </div>
 </div>
-

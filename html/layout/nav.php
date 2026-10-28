@@ -22,15 +22,16 @@ if (!empty($User['name'])) {
 }
 ?>
 
+<!-- Barra de navegação do cliente -->
 <nav class="navbar navbar-expand-lg cs-bg-primary border-bottom">
     <div class="container">
-        <!-- Logo -->
+        <!-- Logótipo -->
         <a href="<?= $appBasePath ?? '' ?>/html/client/home.php" class="navbar-brand d-flex align-items-center gap-2">
             <span class="d-flex align-items-center justify-content-center bg-teal text-white rounded-3 fw-bold cs-logo">R</span>
             <span class="text-white fw-semibold cs-logo-text">ReservaJá</span>
         </a>
 
-        <!-- Mobile toggle -->
+        <!-- Botão do menu (mobile) -->
         <button
             class="navbar-toggler border-0 p-1 text-white shadow-none"
             type="button"
@@ -46,6 +47,7 @@ if (!empty($User['name'])) {
             </svg>
         </button>
 
+        <!-- Menu (colapsável em ecrãs pequenos) -->
         <div class="collapse navbar-collapse" id="navbarContent">
             <!-- Mobile -->
             <div class="d-lg-none w-100 py-3">
@@ -66,7 +68,7 @@ if (!empty($User['name'])) {
                                 Logout
                             </button>
                         </form>
-                        
+
                     </div>
                 <?php else: ?>
                     <div class="pb-3">
@@ -78,6 +80,7 @@ if (!empty($User['name'])) {
 
                 <hr class="border-light opacity-25 my-0">
 
+                <!-- Ligações do menu (mobile) -->
                 <ul class="navbar-nav pt-2">
                     <li class="nav-item">
                         <a
@@ -101,7 +104,7 @@ if (!empty($User['name'])) {
                                 Histórico
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a
                                 href="<?= $appBasePath ?? '' ?>/html/client/profile.php"
@@ -122,6 +125,7 @@ if (!empty($User['name'])) {
 
             <!-- Desktop -->
             <div class="d-none d-lg-flex align-items-center ms-auto">
+                <!-- Ligações do menu (desktop) -->
                 <ul class="navbar-nav align-items-center gap-1">
                     <li class="nav-item">
                         <a
@@ -146,7 +150,7 @@ if (!empty($User['name'])) {
                                 Histórico
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a
                                 href="<?= $appBasePath ?? '' ?>/html/client/profile.php"
@@ -154,7 +158,8 @@ if (!empty($User['name'])) {
                                 Perfil
                             </a>
                         </li>
-                          <li class="nav-item">
+
+                        <li class="nav-item">
                             <a
                                 href="<?= $appBasePath ?? '' ?>/html/client/active_payment.php"
                                 class="nav-link rounded-2 px-3 <?= $isClientPayment ? 'nav-active' : 'text-white' ?>">
@@ -190,8 +195,9 @@ if (!empty($User['name'])) {
     </div>
 </nav>
 
+<!-- Estilos da barra de navegação -->
 <style>
-    /* Navbar */
+    /* Barra de navegação */
     .navbar.cs-bg-primary {
         background-color: var(--color1) !important;
     }
@@ -204,7 +210,7 @@ if (!empty($User['name'])) {
         border-bottom-color: rgba(255, 255, 255, .08) !important;
     }
 
-    /* Logo */
+    /* Logótipo */
     .cs-logo {
         width: 35px;
         height: 35px;
@@ -219,7 +225,7 @@ if (!empty($User['name'])) {
         color: var(--color3) !important;
     }
 
-    /* Navigation */
+    /* Navegação */
     .navbar .nav-link {
         font-size: 14px;
         font-weight: 500;
@@ -237,7 +243,7 @@ if (!empty($User['name'])) {
         background-color: rgba(255, 255, 255, .06);
     }
 
-    /* Login / Logout */
+    /* Iniciar / terminar sessão */
     .cs-btn-primary {
         background-color: var(--color2) !important;
         border: 1px solid var(--color2) !important;
@@ -263,7 +269,7 @@ if (!empty($User['name'])) {
         box-shadow: none !important;
     }
 
-    /* Profile */
+    /* Perfil */
     .bg-teal {
         background-color: var(--color2) !important;
     }

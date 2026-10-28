@@ -51,7 +51,7 @@ $databaseSchedules = $dataBase ?? [];
 
                     <!-- Perfil do profissional -->
                     <div class="d-none d-sm-flex align-items-center gap-2">
-                        
+
                         <?php
                         $roleLabels = [
                             'owner' => 'Proprietário',

@@ -1,9 +1,10 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/text.css");
 @import url("../utilities/animation.css");
 
-
+/* Base da página */
 body {
     min-height: 100vh;
     height: auto;
@@ -16,6 +17,7 @@ body {
     margin: 0;
 }
 
+/* Campos do formulário */
 .cs-input::placeholder {
     color: var(--color4);
     opacity: 1;

@@ -11,7 +11,6 @@ $error = $_SESSION['error']['appointmetnError'] ?? [];
 
 $data = $dataBase ?? [];
 
-
 $appointments_datas = $data['appointments_datas'] ?? [];
 $summary = $data['summary'] ?? [];
 $available_dates = $data['avaliable_Date'] ?? [];
@@ -38,10 +37,12 @@ unset($_SESSION['error']);
 
 <body>
 
+    <!-- Barra de navegação (mobile) -->
     <?php require __DIR__ . "/../layout/professional_navBar.php"; ?>
 
     <div class="d-flex">
 
+        <!-- Barra lateral -->
         <?php require __DIR__ . "/../layout/professional_sideBar.php"; ?>
 
         <main class="flex-grow-1 d-flex flex-column align-items-center gap-3 bg-body py-3">
@@ -71,7 +72,6 @@ unset($_SESSION['error']);
                         <span class="cs-tag-success">
                             <?= htmlspecialchars($roleLabels[$User['roleInCompany']] ?? $User['roleInCompany']) ?>
                         </span>
-
 
                         <span class="small fw-normal">
                             <?= htmlspecialchars($User['name']) ?>
@@ -691,6 +691,7 @@ unset($_SESSION['error']);
 
     </div>
 
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/js/bootstrap.min.js"></script>
     <script src="<?= $appBasePath ?? '' ?>/resources/js/company/appointment.js"></script>
 

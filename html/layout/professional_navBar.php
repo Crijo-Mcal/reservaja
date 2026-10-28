@@ -3,9 +3,10 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $nav = explode('/', trim($currentPath, '/'))[3] ?? '';
 ?>
 
+<!-- Barra de navegação da área profissional (apenas mobile) -->
 <nav class="navbar navbar-expand-lg cs-bg-primary border-bottom d-lg-none sticky-top">
     <div class="container">
-        <!-- Logo -->
+        <!-- Logótipo -->
         <a href="<?= $appBasePath ?? '' ?>/html/company/dashboard.php" class="navbar-brand d-flex align-items-center gap-2">
             <span class="d-flex align-items-center justify-content-center bg-teal text-white rounded-3 fw-bold cs-logo">
                 R
@@ -13,7 +14,7 @@ $nav = explode('/', trim($currentPath, '/'))[3] ?? '';
             <span class="text-white fw-semibold cs-logo-text">ReservaJá</span>
         </a>
 
-        <!-- Mobile toggle -->
+        <!-- Botão do menu (mobile) -->
         <button
             class="navbar-toggler border-0 p-1 text-white shadow-none"
             type="button"
@@ -37,9 +38,10 @@ $nav = explode('/', trim($currentPath, '/'))[3] ?? '';
             </svg>
         </button>
 
+        <!-- Menu colapsável -->
         <div class="collapse navbar-collapse" id="professionalNavbarContent">
             <div class="w-100 py-3">
-                <!-- Profile -->
+                <!-- Perfil -->
                 <?php if (isset($User)): ?>
                     <div class="d-flex flex-column align-items-center gap-2 pb-3">
                         <a
@@ -143,7 +145,7 @@ $nav = explode('/', trim($currentPath, '/'))[3] ?? '';
                         </a>
                     </li>
 
-                    <!-- Sign out -->
+                    <!-- Terminar sessão -->
                     <li class="nav-item mt-2 pt-2 border-top border-light border-opacity-25">
                         <a
                             href="<?= $appBasePath ?? '' ?>/logout"
@@ -158,11 +160,14 @@ $nav = explode('/', trim($currentPath, '/'))[3] ?? '';
     </div>
 </nav>
 
+<!-- Estilos da barra de navegação (mobile) -->
 <style>
-
-    nav{
+    /* Barra de navegação */
+    nav {
         background-color: var(--color1);
     }
+
+    /* Logótipo */
     .cs-logo {
         width: 35px;
         height: 35px;

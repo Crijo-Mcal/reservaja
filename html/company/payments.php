@@ -9,7 +9,6 @@ $User = $_SESSION['user'];
 $User['subscription'] = 'free';
 $error = $_SESSION['error']['paymentError'] ?? [];
 
-
 $data = $dataBase ?? [];
 $summary = $data['summary'] ?? [];
 $payments_datas = $data['payments_datas'] ?? [];
@@ -18,7 +17,6 @@ $available_months = $data['months_options'] ?? [];
 $dataInput = [
     'month' => $_GET['month'] ?? ''
 ];
-
 
 ?>
 
@@ -34,7 +32,6 @@ $dataInput = [
         content="width=device-width, initial-scale=1">
 
     <title>ReservaJá - Pagamentos</title>
-
 
     <link
         rel="stylesheet"

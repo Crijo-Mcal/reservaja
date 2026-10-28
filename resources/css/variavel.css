@@ -1,3 +1,4 @@
+/* Variáveis globais: cores e tipografia */
 :root {
     --color1: #0F172A;
     --color2: #0D9488;
@@ -13,6 +14,7 @@
     --font: "Inter", sans-serif;
 }
 
+/* Base da página */
 body {
     min-height: 100vh;
     height: auto;
@@ -25,6 +27,7 @@ body {
     margin: 0;
 }
 
+/* Foco dos campos de formulário */
 .form-control:focus,
 .form-select:focus {
     border-color: var(--color2);

@@ -5,7 +5,6 @@ $professionals = $data['professionals'] ?? [];
 $User = $_SESSION['user'] ?? [];
 $appBasePath = $appBasePath ?? '';
 
-
 $averageRating = (float) ($ratingData[0]['average_rating'] ?? 0);
 $totalRatings = (int) ($ratingData[0]['total_rating'] ?? 0);
 $ratingCount = count($ratingData);
@@ -28,9 +27,12 @@ $roleLabels = [
 </head>
 
 <body>
+    <!-- Barra de navegação (mobile) -->
     <?php require __DIR__ . "/../layout/professional_navBar.php"; ?>
     <div class="d-flex">
+        <!-- Barra lateral -->
         <?php require __DIR__ . "/../layout/professional_sideBar.php"; ?>
+        <!-- Conteúdo principal -->
         <main class="flex-grow-1 d-flex flex-column gap-3 bg-body py-3">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center gap-3">
@@ -57,7 +59,7 @@ $roleLabels = [
                 </div>
             </div>
 
-            <!--info-->
+            <!-- Informação -->
             <div class="container cs-fadeIn-y1">
                 <div class="row g-3">
                     <div class="col-12 col-md-6">
@@ -96,7 +98,7 @@ $roleLabels = [
                 </div>
             </div>
 
-            <!-- filter -->
+            <!-- Filtro -->
             <?php if ($User['roleInCompany'] == 'owner'): ?>
                 <div class="container cs-fadeIn-y1">
                     <form id="ratingFilterForm" method="GET" action="<?= $appBasePath ?>/html/company/ratings.php">
@@ -127,7 +129,7 @@ $roleLabels = [
                 </div>
             <?php endif; ?>
 
-            <!-- list -->
+            <!-- Lista -->
             <div class="container cs-fadeIn-y1">
                 <section class="rating-list rounded-3">
                     <header class="rating-list-header d-flex align-items-center justify-content-between gap-3">
@@ -166,7 +168,7 @@ $roleLabels = [
                                                 <?php endif; ?>
                                             </div>
                                         </div>
-                                        
+
                                         <form
                                             action="<?= $appBasePath ?>/html/company/ratings.php/delete"
                                             method="POST">
@@ -236,6 +238,7 @@ $roleLabels = [
             </div>
         </main>
     </div>
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?>/resources/js/bootstrap.min.js"></script>
 </body>
 

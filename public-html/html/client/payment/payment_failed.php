@@ -19,6 +19,7 @@
 
 <body class="bg-light">
 
+    <!-- Conteúdo principal: pagamento não concluído -->
     <main class="min-vh-100 d-flex align-items-center">
 
         <div class="container">
@@ -37,6 +38,7 @@
                             Pagamento não concluído
                         </h1>
 
+                        <!-- Informação sobre o pagamento -->
                         <div class="payment-failed-content">
 
                             <div class="payment-failed-notice d-flex align-items-start gap-2 text-start rounded-3 p-3 mb-3">
@@ -63,6 +65,7 @@
 
                             </div>
 
+                            <!-- Botão para tentar novamente -->
                             <a
                                 href="<?= $appBasePath ?? '' ?>/html/client/professionals.php"
                                 class="btn payment-failed-button d-inline-flex align-items-center justify-content-center gap-2 px-3 py-2">

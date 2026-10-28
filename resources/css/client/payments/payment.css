@@ -1,7 +1,9 @@
+/* Importações */
 @import url("../../../bootstrap/bootstrap.min.css");
 @import url("../../variavel.css");
 @import url("../../utilities/animation.css");
 
+/* Contentor e cartões */
 .payment-container {
     max-width: 900px;
 }
@@ -19,6 +21,7 @@
     padding: 1rem 1.25rem;
 }
 
+/* Grupos de informação */
 .info-group {
     display: flex;
     justify-content: space-between;
@@ -43,6 +46,7 @@
     text-align: right;
 }
 
+/* Campos do formulário */
 .form-label {
     color: var(--color1);
 }
@@ -61,6 +65,7 @@
     cursor: default;
 }
 
+/* Resumo de preços */
 .price-row {
     display: flex;
     justify-content: space-between;
@@ -108,6 +113,7 @@
     font-weight: 600;
 }
 
+/* Métodos de pagamento */
 .payment-method {
     display: flex;
     align-items: center;
@@ -157,6 +163,7 @@
     font-size: 0.75rem;
 }
 
+/* Telemóvel MB WAY */
 .mbway-phone-container {
     transition: opacity 0.2s ease;
 }
@@ -165,10 +172,12 @@
     display: none !important;
 }
 
+/* Texto auxiliar */
 .form-text {
     font-size: 0.75rem;
 }
 
+/* Responsivo */
 @media (max-width: 576px) {
 
     .payment-container {

@@ -24,9 +24,11 @@ $tadaInput = ['search' => trim($_GET['client_name'] ?? '')];
 
 <body>
 
+    <!-- Barra de navegação (mobile) -->
     <?php require __DIR__ . "/../layout/professional_navBar.php"; ?>
 
     <div class="d-flex">
+        <!-- Barra lateral -->
         <?php require __DIR__ . "/../layout/professional_sideBar.php"; ?>
 
         <main class="flex-grow-1 bg-body py-3">
@@ -201,7 +203,7 @@ $tadaInput = ['search' => trim($_GET['client_name'] ?? '')];
                             </table>
                         </div>
 
-                        <!-- Cards Tablet / Mobile -->
+                        <!-- Cartões tablet / mobile -->
                         <div class="d-lg-none p-2 p-sm-3">
                             <div class="row g-2 g-sm-3">
 
@@ -282,7 +284,7 @@ $tadaInput = ['search' => trim($_GET['client_name'] ?? '')];
         </main>
     </div>
 
-
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/js/bootstrap.min.js"></script>
 
 </body>

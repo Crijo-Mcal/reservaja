@@ -1,3 +1,4 @@
+/* Animação: deslocamento vertical */
 .cs-fadeIn-y {
     animation: cs-fadeIn-y 0.1s ease-out;
 }
@@ -12,6 +13,7 @@
     }
 }
 
+/* Animação: aparecer de cima para baixo */
 .cs-fadeIn-y1 {
     animation: cs-fadeIn-y1 2s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -28,8 +30,7 @@
     }
 }
 
-
-
+/* Animação: aparecer de baixo para cima */
 .cs-fadeIn-y2 {
     animation: cs-fadeIn-y2 2s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -46,8 +47,7 @@
     }
 }
 
-
-
+/* Animação: aparecer a partir da esquerda */
 .cs-fadeIn-x1 {
     animation: cs-fadeIn-x1 2s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -64,8 +64,7 @@
     }
 }
 
-
-
+/* Animação: aparecer a partir da direita */
 .cs-fadeIn-x2 {
     animation: cs-fadeIn-x2 2s cubic-bezier(0.22, 1, 0.36, 1);
 }

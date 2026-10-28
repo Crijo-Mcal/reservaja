@@ -23,8 +23,10 @@ unset($_SESSION['error'], $_SESSION['oldData']);
 
 <body>
 
+    <!-- Barra de navegação -->
     <?php require __DIR__ . '/../layout/nav.php'; ?>
 
+    <!-- Conteúdo principal: registo de cliente -->
     <main class="py-5 cs-fadeIn-y1 cs-fadeIn-y2 flex-grow-1">
 
         <div class="container ">
@@ -174,7 +176,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
                         </div>
                     </div>
 
-                    <!-- Password -->
+                    <!-- Palavra-passe -->
                     <div class="col-md-6">
 
                         <label class="form-label fw-semibold">
@@ -193,7 +195,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
 
                     </div>
 
-                    <!-- Confirm Password -->
+                    <!-- Confirmar palavra-passe -->
                     <div class="col-md-6">
 
                         <label class="form-label fw-semibold">
@@ -223,7 +225,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
 
                     </div>
 
-                    <!-- Login -->
+                    <!-- Iniciar sessão -->
                     <div class="col-12 text-center">
 
                         <p class="text-muted mb-0">
@@ -260,6 +262,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
         </div>
 
     </main>
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/bootstrap/bootstrap.min.js"></script>
 </body>
 

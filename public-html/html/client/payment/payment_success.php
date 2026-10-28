@@ -19,6 +19,7 @@
 
 <body class="bg-light">
 
+    <!-- Conteúdo principal: pagamento concluído -->
     <main class="min-vh-100 d-flex align-items-center">
 
         <div class="container">
@@ -37,6 +38,7 @@
                             Pagamento concluído com sucesso
                         </h1>
 
+                        <!-- Informação sobre a reserva -->
                         <div class="payment-success-content">
 
                             <div class="payment-success-notice d-flex align-items-start gap-2 text-start rounded-3 p-3 mb-3">
@@ -63,6 +65,7 @@
 
                             </div>
 
+                            <!-- Botão para continuar -->
                             <a href="<?= $appBasePath ?? '' ?>/html/client/professionals.php">
                                 <button
                                     type="submit"

@@ -1,14 +1,16 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/text.css");
 @import url("../utilities/animation.css");
 @import url("../components/tag.css");
 
-
+/* Fundo principal */
 .cs-bg-primary {
     background-color: var(--color1);
 }
 
+/* Cartões de resumo */
 .cs-summary-today {
     background-color: var(--color1);
     color: var(--color3);
@@ -19,6 +21,7 @@
     color: var(--color-succsse-1);
 }
 
+/* Avatar do cliente */
 .cs-client-avatar {
     width: 36px;
     height: 36px;
@@ -33,6 +36,7 @@
     font-weight: 700;
 }
 
+/* Botão principal */
 .cs-btn-primary {
     background-color: #0D9488;
     color: #FFFFFF;

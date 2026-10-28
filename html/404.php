@@ -11,13 +11,15 @@
 
     <link
         rel="stylesheet"
-        href= "<?= $appBasePath ?? '' ?>/resources/css/404.css" >
+        href="<?= $appBasePath ?? '' ?>/resources/css/404.css">
 </head>
 
 <body class="error-404-page">
 
+    <!-- Barra de navegação -->
     <?php require(__DIR__ . '/layout/nav.php') ?>
 
+    <!-- Conteúdo principal: página não encontrada -->
     <main class="error-404-main">
 
         <div class="error-404-content">
@@ -34,8 +36,10 @@
 
     </main>
 
+    <!-- Rodapé -->
     <?php require(__DIR__ . '/layout/footer.php') ?>
 
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/js/bootstrap.min.js"></script>
 
 </body>

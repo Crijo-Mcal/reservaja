@@ -39,10 +39,11 @@ $companyDescription = $company['description'] ?? '';
 
 <body>
 
+    <!-- Barra de navegação -->
     <?php require(__DIR__ . '/../layout/nav.php') ?>
 
     <main>
-        <!-- Professional -->
+        <!-- Profissional -->
         <section class="professional-section py-4 py-md-5">
             <div class="container">
                 <div class="hero p-3 p-md-4">
@@ -64,7 +65,7 @@ $companyDescription = $company['description'] ?? '';
                                     <?= htmlspecialchars($professionalSpeciality) ?>
                                 </p>
 
-                                <!-- Rating -->
+                                <!-- Avaliação -->
                                 <div class="professional-rating">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +92,7 @@ $companyDescription = $company['description'] ?? '';
                             </div>
                         </div>
 
-                        <!-- Professional contact -->
+                        <!-- Contacto do profissional -->
                         <div class="professional-contact">
                             <?php if ($professionalEmail): ?>
                                 <div class="professional-contact-item">
@@ -128,7 +129,7 @@ $companyDescription = $company['description'] ?? '';
                         </p>
                     <?php endif; ?>
 
-                    <!-- Quick navigation -->
+                    <!-- Navegação rápida -->
                     <nav class="professional-navigation" aria-label="Navegação da página">
                         <a href="#empresa" class="professional-nav-link">
                             Empresa
@@ -146,7 +147,7 @@ $companyDescription = $company['description'] ?? '';
             </div>
         </section>
 
-        <!-- Alert -->
+        <!-- Alerta -->
         <?php if ($error): ?>
             <div class="container p-3">
                 <div class="alert rj-alert alert-dismissible fade show mb-0" role="alert">
@@ -166,9 +167,10 @@ $companyDescription = $company['description'] ?? '';
             </div>
         <?php endif; ?>
 
+        <!-- Conteúdo da página: empresa, serviços e horários -->
         <div class="container page-content py-5 cs-fadeIn-y2">
 
-            <!-- Company -->
+            <!-- Empresa -->
             <section class="content-section company-section" id="empresa">
                 <div class="section-header mb-4">
                     <div class="section-step">
@@ -243,7 +245,7 @@ $companyDescription = $company['description'] ?? '';
                 </div>
             </section>
 
-            <!-- Services -->
+            <!-- Serviços -->
             <section class="content-section services-section" id="servicos">
                 <div class="section-header mb-4">
                     <div class="section-step">
@@ -341,7 +343,7 @@ $companyDescription = $company['description'] ?? '';
                 <?php endif; ?>
             </section>
 
-            <!-- Availability -->
+            <!-- Disponibilidade -->
             <section class="content-section availability-section" id="horarios">
                 <div class="section-header mb-4">
                     <div class="section-step">
@@ -411,9 +413,10 @@ $companyDescription = $company['description'] ?? '';
         </div>
     </main>
 
+    <!-- Rodapé -->
     <?php require(__DIR__ . '/../layout/footer.php') ?>
 
-    <!-- Service details modal -->
+    <!-- Modal de detalhes do serviço -->
     <div
         class="modal fade"
         id="serviceModal"
@@ -478,6 +481,7 @@ $companyDescription = $company['description'] ?? '';
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/bootstrap/bootstrap.min.js"></script>
     <script src="<?= $appBasePath ?? '' ?>/resources/js/client/professional_detail.js"></script>
 

@@ -1,3 +1,4 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/text.css");
@@ -33,7 +34,7 @@
     opacity: 1;
 }
 
-/* Labels */
+/* Etiquetas dos campos */
 .profile-label {
     display: block;
     margin-bottom: 8px;
@@ -55,7 +56,7 @@
     color: #64748B;
 }
 
-/* Upload de imagem */
+/* Carregamento de imagem */
 .profile-file-input {
     height: 34px;
     min-height: 34px;
@@ -132,8 +133,7 @@
     color: var(--color2);
 }
 
-
-/* Input + botão dos dados sensíveis */
+/* Campo + botão dos dados sensíveis */
 .sensitive-field {
     border: 1px solid #DEE2E6;
     border-radius: 7px;
@@ -149,6 +149,7 @@
     box-shadow: none;
 }
 
+/* Responsivo */
 @media (max-width: 575.98px) {
 
     .profile-card .card-body,

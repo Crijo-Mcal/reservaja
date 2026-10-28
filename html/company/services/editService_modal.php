@@ -1,3 +1,4 @@
+<!-- Modal para editar serviço -->
 <div
     class="modal fade"
     id="editServiceModal"
@@ -9,7 +10,7 @@
 
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
-            <!-- Header -->
+            <!-- Cabeçalho -->
             <div class="modal-header px-4 py-3 border-bottom">
 
                 <div>
@@ -33,20 +34,19 @@
 
             </div>
 
-            <!-- Form -->
+            <!-- Formulário -->
             <form
                 method="POST"
                 action="<?= $appBasePath ?? '' ?>/company/services/update_service">
 
-                <!-- Service ID -->
+                <!-- ID do serviço -->
                 <input
                     type="hidden"
                     id="serviceId"
                     name="service_id"
                     required>
 
-
-                <!-- Body -->
+                <!-- Corpo -->
                 <div class="modal-body px-4 py-3">
 
                     <!-- Nome -->
@@ -66,7 +66,6 @@
                             placeholder="Ex.: Instalação de equipamento">
 
                     </div>
-
 
                     <!-- Estado + Duração -->
                     <div class="row g-3 mb-3">
@@ -96,7 +95,6 @@
                             </select>
 
                         </div>
-
 
                         <!-- Duração -->
                         <div class="col-6">
@@ -217,8 +215,6 @@
 
                     </div>
 
-
-
                     <!-- Descrição -->
                     <div>
 
@@ -239,8 +235,7 @@
 
                 </div>
 
-
-                <!-- Footer -->
+                <!-- Rodapé -->
                 <div class="modal-footer px-4 py-3 bg-body-tertiary border-top">
 
                     <button

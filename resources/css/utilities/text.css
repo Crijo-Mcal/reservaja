@@ -1,4 +1,4 @@
-/* text color */
+/* Cor do texto */
 .cs-text-0 {
     color: var(--color1);
 }
@@ -19,7 +19,7 @@
     color: var(--color-succsse-1);
 }
 
-
+/* Decoração de texto */
 .cs-text-decoration-none {
     text-decoration: none;
 }

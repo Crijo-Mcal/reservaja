@@ -1,9 +1,11 @@
+<!-- Rodapé -->
 <footer class="cs-bg-primary text-white mt-5">
 
     <div class="container py-5">
 
         <div class="row g-4 justify-content-between">
 
+            <!-- Marca e descrição -->
             <div class="col-lg-5 col-md-6">
 
                 <a
@@ -27,6 +29,7 @@
 
             </div>
 
+            <!-- Contactos -->
             <div class="col-lg-4 col-md-6">
 
                 <h6 class="fw-semibold mb-3 footer-title">
@@ -75,6 +78,7 @@
 
         </div>
 
+        <!-- Direitos de autor e ligações legais -->
         <hr class="border-light opacity-25 my-4">
 
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
@@ -105,31 +109,35 @@
 
 </footer>
 
+<!-- Estilos do rodapé -->
 <style>
-footer{
-    background-color: var(--color1);
-}
+    /* Rodapé */
+    footer {
+        background-color: var(--color1);
+    }
 
-.footer-title {
-    font-size: 14px;
-}
+    /* Tipografia */
+    .footer-title {
+        font-size: 14px;
+    }
 
-.footer-text,
-.footer-link {
-    font-size: 14px;
-}
+    .footer-text,
+    .footer-link {
+        font-size: 14px;
+    }
 
-.footer-small {
-    font-size: 13px;
-}
+    .footer-small {
+        font-size: 13px;
+    }
 
-.footer-link {
-    color: rgba(255, 255, 255, .7);
-    text-decoration: none;
-    transition: color .2s ease;
-}
+    /* Ligações */
+    .footer-link {
+        color: rgba(255, 255, 255, .7);
+        text-decoration: none;
+        transition: color .2s ease;
+    }
 
-.footer-link:hover {
-    color: var(--color2);
-}
+    .footer-link:hover {
+        color: var(--color2);
+    }
 </style>

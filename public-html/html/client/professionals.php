@@ -5,8 +5,6 @@ $professionals = $data['professionals'] ?? [];
 $professionalsSpeciality = $data['allspeciality'] ?? [];
 $rating = $rating_data[0] ?? null;
 
-
-
 $professionalName = $_GET['professional_name'] ?? '';
 $professionalSpeciality = $_GET['professional_speciality'] ?? '';
 
@@ -26,6 +24,7 @@ $professionalCount = count($professionals);
 
 <body>
 
+    <!-- Barra de navegação -->
     <?php require(__DIR__ . '/../layout/nav.php') ?>
 
     <main class="flex-grow-1">
@@ -137,7 +136,7 @@ $professionalCount = count($professionals);
                                                 ?>
                                             </div>
 
-                                            <!-- Rating -->
+                                            <!-- Avaliação -->
                                             <div class="professional-rating">
                                                 <span class="rating-star" aria-hidden="true">
                                                     <svg
@@ -166,7 +165,6 @@ $professionalCount = count($professionals);
                                                 </span>
                                             </div>
                                         </div>
-
 
                                         <!-- Acesso ao perfil -->
                                         <form
@@ -212,11 +210,11 @@ $professionalCount = count($professionals);
 
     </main>
 
+    <!-- Modal de avaliação do profissional -->
     <?php
     $rating_data = $data['rating_data'] ?? [];
     $rating = $rating_data[0] ?? null;
     ?>
-
 
     <?php if (!empty($rating)): ?>
         <div
@@ -281,8 +279,10 @@ $professionalCount = count($professionals);
         </div>
     <?php endif; ?>
 
+    <!-- Rodapé -->
     <?php require(__DIR__ . '/../layout/footer.php') ?>
 
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/js/bootstrap.min.js"></script>
     <script src="<?= $appBasePath ?? '' ?>/resources/js/client/professionals.js"></script>
 

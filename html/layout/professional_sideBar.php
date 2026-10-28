@@ -4,9 +4,9 @@ $nav = basename($currentPath, '.php');
 
 ?>
 
-<!-- Sidebar Desktop -->
+<!-- Barra lateral (desktop) -->
 <aside class="cs-bg-primary text-white d-none d-sm-flex flex-column align-items-center cs-prof-sidebar">
-    <!-- Logo -->
+    <!-- Logótipo -->
     <div class="w-90 d-flex align-items-center" style="height: 66px;">
         <div class="logo">
             <h1>R</h1>
@@ -14,9 +14,9 @@ $nav = basename($currentPath, '.php');
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navegação -->
     <nav class="w-90 d-flex flex-column gap-1 mt-3">
-        <!-- Dashboard -->
+        <!-- Painel -->
         <div class="cs-sidebar-item <?= $nav === 'dashboard' ? 'cs-sidebar-item-active' : '' ?>">
             <a href="<?= $appBasePath ?? '' ?>/html/company/dashboard.php"
                 class="cs-text-decoration-none d-flex align-items-center gap-2">
@@ -35,7 +35,7 @@ $nav = basename($currentPath, '.php');
             </a>
         </div>
 
-        <!-- Appointments -->
+        <!-- Agendamentos -->
         <div class="cs-sidebar-item <?= $nav === 'appointments' ? 'cs-sidebar-item-active' : '' ?>">
             <a href="<?= $appBasePath ?? '' ?>/html/company/appointments.php"
                 class="cs-text-decoration-none d-flex align-items-center gap-2">
@@ -53,7 +53,7 @@ $nav = basename($currentPath, '.php');
             </a>
         </div>
 
-        <!-- Schedule -->
+        <!-- Horários -->
         <div class="cs-sidebar-item <?= $nav === 'schedules' ? 'cs-sidebar-item-active' : '' ?>">
             <a href="<?= $appBasePath ?? '' ?>/html/company/schedules.php"
                 class="cs-text-decoration-none d-flex align-items-center gap-2">
@@ -73,7 +73,7 @@ $nav = basename($currentPath, '.php');
             </a>
         </div>
 
-        <!-- Services -->
+        <!-- Serviços -->
         <div class="cs-sidebar-item <?= $nav === 'services' ? 'cs-sidebar-item-active' : '' ?>">
             <a href="<?= $appBasePath ?? '' ?>/html/company/services.php"
                 class="cs-text-decoration-none d-flex align-items-center gap-2">
@@ -86,7 +86,7 @@ $nav = basename($currentPath, '.php');
             </a>
         </div>
 
-        <!-- Clients -->
+        <!-- Clientes -->
         <div class="cs-sidebar-item <?= $nav === 'clients' ? 'cs-sidebar-item-active' : '' ?>">
             <a href="<?= $appBasePath ?? '' ?>/html/company/clients.php"
                 class="cs-text-decoration-none d-flex align-items-center gap-2">
@@ -99,7 +99,7 @@ $nav = basename($currentPath, '.php');
             </a>
         </div>
 
-        <!-- Payments -->
+        <!-- Pagamentos -->
         <?php if (($User['roleInCompany'] ?? '') === 'owner'): ?>
             <div class="cs-sidebar-item <?= $nav === 'payments' ? 'cs-sidebar-item-active' : '' ?>">
                 <a href="<?= $appBasePath ?? '' ?>/html/company/payments.php"
@@ -113,17 +113,20 @@ $nav = basename($currentPath, '.php');
                 </a>
             </div>
 
-            <div class="cs-sidebar-item <?= $nav === 'professionals' ? 'cs-sidebar-item-active' : '' ?>"> 
-                <a href="<?= $appBasePath ?? '' ?>/html/company/professionals/professionals.php" 
-                class="cs-text-decoration-none d-flex align-items-center gap-2"> 
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" 
-                         xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Profissionais -->
+            <div class="cs-sidebar-item <?= $nav === 'professionals' ? 'cs-sidebar-item-active' : '' ?>">
+                <a href="<?= $appBasePath ?? '' ?>/html/company/professionals/professionals.php"
+                    class="cs-text-decoration-none d-flex align-items-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16.051 12.616a1 1 0 0 1 1.909.024l.737 1.452a1 1 0 0 0 .737.535l1.634.256a1 1 0 0 1 .588 1.806l-1.172 1.168a1 1 0 0 0-.282.866l.259 1.613a1 1 0 0 1-1.541 1.134l-1.465-.75a1 1 0 0 0-.912 0l-1.465.75a1 1 0 0 1-1.539-1.133l.258-1.613a1 1 0 0 0-.282-.866l-1.156-1.153a1 1 0 0 1 .572-1.822l1.633-.256a1 1 0 0 0 .737-.535z" />
                         <path d="M8 15H7a4 4 0 0 0-4 4v2" />
                         <circle cx="10" cy="7" r="4" />
-                    </svg> <span>Profissionais</span> </a> </div>
+                    </svg>
+                    <span>Profissionais</span>
+                </a>
+            </div>
         <?php endif; ?>
-
 
         <!-- Avaliações -->
         <div class="cs-sidebar-item <?= $nav === 'ratings' ? 'cs-sidebar-item-active' : '' ?>">
@@ -142,7 +145,7 @@ $nav = basename($currentPath, '.php');
         </div>
     </nav>
 
-    <!-- Logout -->
+    <!-- Terminar sessão -->
     <section class="d-flex flex-column w-90 position-absolute bottom-0 mb-3">
         <button
             type="button"
@@ -162,12 +165,13 @@ $nav = basename($currentPath, '.php');
     </section>
 </aside>
 
-<!-- Logout Modal -->
+<!-- Modal de terminar sessão -->
 <div class="modal fade"
     id="logoutModal"
     tabindex="-1"
     aria-labelledby="logoutModalLabel"
     aria-hidden="true">
+    <!-- Janela do modal -->
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -204,8 +208,9 @@ $nav = basename($currentPath, '.php');
     </div>
 </div>
 
+<!-- Estilos da barra lateral -->
 <style>
-    /* Sidebar */
+    /* Barra lateral */
     .cs-prof-sidebar {
         width: 220px;
         min-width: 220px;
@@ -217,12 +222,12 @@ $nav = basename($currentPath, '.php');
         overflow: hidden;
     }
 
-    /* Sidebar content */
+    /* Conteúdo da barra lateral */
     .cs-prof-sidebar .w-90 {
         width: 90%;
     }
 
-    /* Logo */
+    /* Logótipo */
     .cs-prof-sidebar .logo {
         display: flex;
         align-items: center;
@@ -250,12 +255,12 @@ $nav = basename($currentPath, '.php');
         font-size: 18px;
     }
 
-    /* Navigation */
+    /* Navegação */
     .cs-prof-sidebar nav {
         width: 90%;
     }
 
-    /* Navigation item */
+    /* Item de navegação */
     .cs-sidebar-item {
         width: 100%;
         height: 42px;
@@ -264,7 +269,7 @@ $nav = basename($currentPath, '.php');
         transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    /* Link */
+    /* Ligação */
     .cs-sidebar-item>a {
         width: 100%;
         height: 100%;
@@ -276,12 +281,12 @@ $nav = basename($currentPath, '.php');
         transition: color 0.2s ease;
     }
 
-    /* Icon */
+    /* Ícone */
     .cs-sidebar-item>a svg {
         flex-shrink: 0;
     }
 
-    /* Hover */
+    /* Ao passar o rato */
     .cs-sidebar-item:hover {
         background-color: rgba(255, 255, 255, 0.06);
     }
@@ -290,7 +295,7 @@ $nav = basename($currentPath, '.php');
         color: var(--color3);
     }
 
-    /* Active item */
+    /* Item ativo */
     .cs-sidebar-item-active {
         background-color: var(--color2);
     }
@@ -299,12 +304,12 @@ $nav = basename($currentPath, '.php');
         background-color: var(--color2);
     }
 
-    /* Active link */
+    /* Ligação ativa */
     .cs-sidebar-item-active>a {
         color: var(--color3);
     }
 
-    /* Logout */
+    /* Terminar sessão */
     .log-out {
         color: var(--color4);
         height: 42px;

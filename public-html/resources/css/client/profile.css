@@ -1,13 +1,16 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/animation.css");
 
+/* Título da página */
 .profile-title {
     color: var(--color1);
     font-size: 28px;
     font-weight: 700;
 }
 
+/* Campos do formulário */
 .form-control {
     min-height: 38px;
     padding: 6px 10px;
@@ -31,6 +34,7 @@
     font-weight: 400;
 }
 
+/* Responsivo */
 @media (max-width: 576px) {
     .profile-title {
         font-size: 24px;

@@ -25,7 +25,6 @@ $tadaInput = ['search' => trim($_GET['service_name'] ?? '')];
     <!-- Estilos -->
     <link rel="stylesheet" href="<?= $appBasePath ?? '' ?>/resources/css/company/services.css">
 
-
 </head>
 
 <body>

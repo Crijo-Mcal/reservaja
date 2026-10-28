@@ -1,10 +1,11 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/text.css");
 @import url("../utilities/animation.css");
 @import url("../components/tag.css");
 
-
+/* Botão principal */
 .cs-btn-primary {
     background-color: #0D9488;
     color: #FFFFFF;

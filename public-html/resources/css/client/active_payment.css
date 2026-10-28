@@ -1,11 +1,14 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/animation.css");
 
+/* Título da página */
 .history-title {
     color: var(--color1);
 }
 
+/* Cartão do pagamento */
 .payment-card {
     background-color: var(--color3);
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -35,6 +38,7 @@
     overflow-wrap: anywhere;
 }
 
+/* Botões de ação */
 .btn-continue-payment,
 .btn-cancel-payment {
     padding: 8px 12px;
@@ -69,10 +73,12 @@
     color: var(--color3);
 }
 
+/* Estado vazio */
 .history-empty i {
     color: var(--color2);
 }
 
+/* Responsivo */
 @media (max-width: 1100px) {
     .payment-info {
         grid-template-columns: minmax(0, 1fr) minmax(85px, 0.6fr) minmax(100px, 0.7fr);

@@ -28,8 +28,10 @@ unset($_SESSION['error'], $_SESSION['oldData']);
 
 <body>
 
+    <!-- Barra de navegação -->
     <?php require __DIR__ . '/../layout/nav.php'; ?>
 
+    <!-- Conteúdo principal: registo de profissional -->
     <main class="py-5 cs-fadeIn-y2 flex-grow-1">
 
         <div class="container">
@@ -214,7 +216,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
 
                     </div>
 
-                    <!-- Login -->
+                    <!-- Iniciar sessão -->
                     <div class="col-12 text-center mt-3">
 
                         <p class="text-muted mb-0">
@@ -251,6 +253,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
         </div>
 
     </main>
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/bootstrap/bootstrap.min.js"></script>
 </body>
 

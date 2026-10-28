@@ -27,15 +27,17 @@ $service = $dataBase['service'] ?? [];
 
 <body class="d-flex flex-column min-vh-100">
 
+    <!-- Barra de navegação -->
     <?php require(__DIR__ . '/../layout/nav.php') ?>
 
+    <!-- Conteúdo principal: reserva -->
     <main class="flex-grow-1 d-flex flex-column justify-content-center align-items-center">
 
         <div class="container py-4 py-md-5">
 
             <div class="booking-container mx-auto">
 
-                <!-- Service information -->
+                <!-- Informação do serviço -->
                 <div class="row g-3 mb-4">
 
                     <div class="col-12 col-md-6">
@@ -68,7 +70,7 @@ $service = $dataBase['service'] ?? [];
 
                 </div>
 
-                <!-- Booking -->
+                <!-- Reserva -->
                 <div class="border rounded-3">
 
                     <form
@@ -76,7 +78,7 @@ $service = $dataBase['service'] ?? [];
                         action="<?= $appBasePath ?? '' ?>/client/booking/add_new_booking"
                         method="post">
 
-                        <!-- Booking data -->
+                        <!-- Dados da reserva -->
                         <input
                             type="hidden"
                             name="professional_id"
@@ -137,7 +139,7 @@ $service = $dataBase['service'] ?? [];
 
                             </div>
 
-                            <!-- Date -->
+                            <!-- Data -->
                             <div class="mb-4">
 
                                 <label
@@ -160,7 +162,7 @@ $service = $dataBase['service'] ?? [];
 
                             </div>
 
-                            <!-- Hours -->
+                            <!-- Horas -->
                             <div>
 
                                 <div class="small fw-medium mb-2">
@@ -203,12 +205,11 @@ $service = $dataBase['service'] ?? [];
 
     </main>
 
-
+    <!-- Scripts (dados da página e lógica da reserva) -->
     <script>
         const dataBase = <?= json_encode($dataBase) ?>;
     </script>
 
-  
     <script src="<?= $appBasePath ?? '' ?>/resources/js/client/booking/index.js"></script>
 
 </body>

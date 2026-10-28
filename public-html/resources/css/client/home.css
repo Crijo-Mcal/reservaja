@@ -1,7 +1,9 @@
+/* Importações */
 @import url("../../bootstrap/bootstrap.min.css");
 @import url("../variavel.css");
 @import url("../utilities/animation.css");
 
+/* Base da página */
 html {
     scroll-behavior: smooth;
 }
@@ -19,6 +21,7 @@ img {
     max-width: 100%;
 }
 
+/* Títulos e textos das secções */
 .rj-eyebrow,
 .rj-section-label {
     display: inline-flex;
@@ -227,7 +230,7 @@ img {
     background: linear-gradient(180deg, transparent 50%, rgba(15, 23, 42, .2));
 }
 
-/* Cards flutuantes */
+/* Cartões flutuantes */
 .rj-floating-card {
     position: absolute;
     z-index: 3;

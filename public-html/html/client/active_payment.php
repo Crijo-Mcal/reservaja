@@ -19,8 +19,10 @@ $data = $dataBase ?? [];
 </head>
 
 <body>
+    <!-- Barra de navegação -->
     <?php require(__DIR__ . '/../layout/nav.php'); ?>
 
+    <!-- Conteúdo principal: pagamentos pendentes -->
     <main class="container py-5 flex-grow-1">
         <h1 class="history-title fw-bold fs-4 mb-4">
             Pagamentos Pendentes
@@ -28,6 +30,7 @@ $data = $dataBase ?? [];
 
         <?php if (!empty($data)): ?>
 
+            <!-- Lista de pagamentos pendentes -->
             <div class="d-flex flex-column gap-2 cs-fadeIn-y2">
 
                 <?php foreach ($data as $payment): ?>
@@ -68,6 +71,7 @@ $data = $dataBase ?? [];
                                     </strong>
                                 </div>
 
+                                <!-- Ações: continuar ou cancelar o pagamento -->
                                 <div class="payment-actions d-flex align-items-center flex-wrap gap-2">
                                     <a
                                         href="<?= htmlspecialchars(
@@ -96,6 +100,7 @@ $data = $dataBase ?? [];
 
         <?php else: ?>
 
+            <!-- Estado vazio -->
             <div class="history-empty text-center py-5 px-3 border rounded-3">
                 <i class="bi bi-credit-card fs-1"></i>
 
@@ -107,6 +112,7 @@ $data = $dataBase ?? [];
         <?php endif; ?>
     </main>
 
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?? '' ?>/resources/js/bootstrap.min.js"></script>
 </body>
 

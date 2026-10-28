@@ -1,4 +1,4 @@
-<!-- Services Modal -->
+<!-- Modal de serviços -->
 <div class="modal fade" id="professionalServicesModal" tabindex="-1" aria-labelledby="professionalServicesLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
         <div class="modal-content border-0">
@@ -21,6 +21,7 @@
     </div>
 </div>
 
+<!-- Estilos do modal -->
 <style>
     #professionalServicesModal .service-card {
         border: 1px solid #E2E8F0;
@@ -49,4 +50,3 @@
         color: #475569;
     }
 </style>
-

@@ -5,7 +5,6 @@ $data = $dataBase ?? [];
 $User = $_SESSION['user'] ?? [];
 $appBasePath = $appBasePath ?? '';
 
-
 $roleLabels = [
     'owner' => 'Proprietário',
     'employee' => 'Funcionário',
@@ -31,15 +30,17 @@ $statusLabels = [
 
 <body>
 
+    <!-- Barra de navegação (mobile) -->
     <?php require __DIR__ . "/../../layout/professional_navBar.php"; ?>
 
     <div class="d-flex">
 
+        <!-- Barra lateral -->
         <?php require __DIR__ . "/../../layout/professional_sideBar.php"; ?>
 
         <main class="flex-grow-1 d-flex flex-column gap-3 bg-body py-3">
 
-            <!-- Header -->
+            <!-- Cabeçalho -->
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center gap-3">
                     <div>
@@ -68,7 +69,7 @@ $statusLabels = [
                 </div>
             </div>
 
-            <!-- Filter -->
+            <!-- Filtro -->
             <!-- <div class="container">
                 <form method="GET" action="<?= $appBasePath ?>/html/company/professionals.php">
                     <div class="card border">
@@ -109,7 +110,7 @@ $statusLabels = [
                 </form>
             </div> -->
 
-            <!-- Professionals list -->
+            <!-- Lista de profissionais -->
             <div class="container cs-fadeIn-y1">
                 <section class="professional-list rounded-3">
 
@@ -149,7 +150,7 @@ $statusLabels = [
                                     <div class="card-body p-3">
                                         <div class="row g-3 align-items-center">
 
-                                            <!-- Profile -->
+                                            <!-- Perfil -->
                                             <div class="col-12 col-md">
                                                 <div class="d-flex align-items-center gap-3">
 
@@ -184,7 +185,7 @@ $statusLabels = [
                                                 </div>
                                             </div>
 
-                                            <!-- Actions -->
+                                            <!-- Ações -->
                                             <div class="col-12 col-md-auto">
                                                 <div class="d-flex flex-wrap align-items-center gap-2">
                                                     <button
@@ -201,7 +202,6 @@ $statusLabels = [
                                                         Atualizar
                                                     </button>
 
-
                                                     <button
                                                         type="button"
                                                         class="btn btn-sm btn-outline-secondary"
@@ -211,8 +211,6 @@ $statusLabels = [
                                                         data-schedules="<?= htmlspecialchars(json_encode($professional['schedules'] ?? [], JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP), ENT_QUOTES, 'UTF-8') ?>">
                                                         Horários
                                                     </button>
-
-
 
                                                     <button
                                                         type="button"
@@ -251,12 +249,13 @@ $statusLabels = [
         </main>
     </div>
 
+    <!-- Modais do profissional -->
     <?php require_once __DIR__ . '/apointment_modal.php' ?>
     <?php require_once __DIR__ . '/schedule_modal.php' ?>
     <?php require_once __DIR__ . '/service_modal.php' ?>
     <?php require_once __DIR__ . '/update_modal.php' ?>
 
-
+    <!-- Scripts -->
     <script src="<?= $appBasePath ?>/resources/js/bootstrap.min.js"></script>
     <script src="<?= $appBasePath ?>/resources/js/company/professionals.js"></script>
 
