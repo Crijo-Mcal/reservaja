@@ -1,0 +1,47 @@
+@import url("../../../bootstrap/bootstrap.min.css");
+@import url("../../variavel.css");
+@import url("../../utilities/animation.css");
+
+body {
+    font-family: var(--font);
+}
+
+.payment-failed-icon {
+    color: var(--color-danger-1);
+    font-size: 64px;
+    line-height: 1;
+}
+
+.payment-failed-content {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.payment-failed-notice {
+    width: 100%;
+    color: var(--color1);
+    background-color: var(--color-danger-2);
+    border: 1px solid var(--color-danger-1);
+}
+
+.payment-failed-notice i {
+    color: var(--color-danger-1);
+}
+
+.payment-failed-notice strong {
+    color: var(--color-danger-1);
+}
+
+.payment-failed-button {
+    width: 100%;
+    color: var(--color3);
+    background-color: var(--color2);
+    border-color: var(--color2);
+}
+
+.payment-failed-button:hover {
+    color: var(--color3) !important;
+    background-color: #0F766E !important;
+    border-color: #0F766E !important;
+}

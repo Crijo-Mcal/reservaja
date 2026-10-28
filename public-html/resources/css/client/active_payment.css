@@ -1,0 +1,110 @@
+@import url("../../bootstrap/bootstrap.min.css");
+@import url("../variavel.css");
+@import url("../utilities/animation.css");
+
+.history-title {
+    color: var(--color1);
+}
+
+.payment-card {
+    background-color: var(--color3);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.payment-card:hover {
+    border-color: var(--color2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.payment-info {
+    grid-template-columns: minmax(0, 1.5fr) minmax(85px, 0.65fr) minmax(100px, 0.75fr) max-content;
+    gap: 16px;
+}
+
+.payment-info span {
+    color: #777;
+    font-size: 12px;
+}
+
+.payment-info strong {
+    color: var(--color1);
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.btn-continue-payment,
+.btn-cancel-payment {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-continue-payment {
+    background-color: var(--color2);
+    border-color: var(--color2);
+    color: var(--color3);
+}
+
+.btn-continue-payment:hover {
+    background-color: var(--color1);
+    border-color: var(--color1);
+    color: var(--color3);
+}
+
+.btn-cancel-payment {
+    background-color: transparent;
+    border: 1px solid var(--color-danger-2);
+    color: var(--color-danger-1);
+}
+
+.btn-cancel-payment:hover {
+    background-color: #DC2626;
+    border-color: #DC2626;
+    color: var(--color3);
+}
+
+.history-empty i {
+    color: var(--color2);
+}
+
+@media (max-width: 1100px) {
+    .payment-info {
+        grid-template-columns: minmax(0, 1fr) minmax(85px, 0.6fr) minmax(100px, 0.7fr);
+    }
+
+    .payment-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .payment-info {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .payment-service,
+    .payment-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-info {
+        gap: 14px 12px;
+    }
+
+    .payment-actions {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+
+    .payment-actions .btn {
+        width: 100%;
+    }
+}

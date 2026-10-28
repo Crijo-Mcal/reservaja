@@ -1,0 +1,47 @@
+@import url("../../../bootstrap/bootstrap.min.css");
+@import url("../../variavel.css");
+@import url("../../utilities/animation.css");
+
+body {
+    font-family: var(--font);
+}
+
+.payment-success-icon {
+    color: var(--color-succsse-1);
+    font-size: 64px;
+    line-height: 1;
+}
+
+.payment-success-content {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.payment-success-notice {
+    width: 100%;
+    color: var(--color1);
+    background-color: var(--color-succsse-2);
+    border: 1px solid var(--color-succsse-1);
+}
+
+.payment-success-notice i {
+    color: var(--color-succsse-1);
+}
+
+.payment-success-notice strong {
+    color: var(--color-succsse-1);
+}
+
+.payment-success-button {
+    width: 100%;
+    color: var(--color3);
+    background-color: var(--color2);
+    border-color: var(--color2);
+}
+
+.payment-success-button:hover {
+    color: var(--color3) !important;
+    background-color: #0F766E !important;
+    border-color: #0F766E !important;
+}

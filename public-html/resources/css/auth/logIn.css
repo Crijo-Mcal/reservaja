@@ -1,0 +1,14 @@
+@import url("../../bootstrap/bootstrap.min.css");
+@import url("../variavel.css");
+@import url("../utilities/text.css");
+@import url("../utilities/animation.css");
+
+.cs-input::placeholder {
+    color: var(--color4);
+    opacity: 1;
+}
+
+.cs-input:focus {
+    border-color: var(--color2);
+    box-shadow: 0 0 0 .2rem rgba(13, 148, 136, .15);
+}

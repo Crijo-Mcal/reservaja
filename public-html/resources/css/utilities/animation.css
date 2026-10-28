@@ -1,0 +1,83 @@
+.cs-fadeIn-y {
+    animation: cs-fadeIn-y 0.1s ease-out;
+}
+
+@keyframes cs-fadeIn-y {
+    from {
+        transform: translateY(-15px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.cs-fadeIn-y1 {
+    animation: cs-fadeIn-y1 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cs-fadeIn-y1 {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.cs-fadeIn-y2 {
+    animation: cs-fadeIn-y2 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cs-fadeIn-y2 {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.cs-fadeIn-x1 {
+    animation: cs-fadeIn-x1 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cs-fadeIn-x1 {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+.cs-fadeIn-x2 {
+    animation: cs-fadeIn-x2 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cs-fadeIn-x2 {
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

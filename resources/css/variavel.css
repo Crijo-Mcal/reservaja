@@ -1,0 +1,32 @@
+:root {
+    --color1: #0F172A;
+    --color2: #0D9488;
+    --color3: #FFFFFF;
+    --color4: #94A3B8;
+    --color-succsse-1: #0D9488;
+    --color-succsse-2: #CCFBF1;
+    --color-danger-1: #EF4444;
+    --color-danger-2: #FEE2E2;
+    --color-warning-1: #D97706;
+    --color-warning-2: #FEF3C7;
+
+    --font: "Inter", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color2);
+    box-shadow: none;
+}

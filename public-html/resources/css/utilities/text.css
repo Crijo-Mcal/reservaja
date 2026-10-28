@@ -1,0 +1,25 @@
+/* text color */
+.cs-text-0 {
+    color: var(--color1);
+}
+
+.cs-text-1 {
+    color: var(--color3);
+}
+
+.cs-text-2 {
+    color: var(--color4);
+}
+
+.cs-text-3 {
+    color: var(--color2);
+}
+
+.cs-text-success {
+    color: var(--color-succsse-1);
+}
+
+
+.cs-text-decoration-none {
+    text-decoration: none;
+}
