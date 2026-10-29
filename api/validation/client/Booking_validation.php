@@ -5,7 +5,7 @@ namespace public\api\validation\client;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Booking_Validation
+class Booking_validation
 {
     private array $rules;
 

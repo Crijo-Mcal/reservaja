@@ -63,8 +63,6 @@ class Ratings_controller
         ];
 
 
-
-
         $validate_input = $this->rating_validation->validate($data_input);
 
 

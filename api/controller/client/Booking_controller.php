@@ -3,20 +3,20 @@
 namespace public\api\controller\client;
 
 use public\api\services\client\Booking_service;
-use public\api\validation\client\Booking_Validation;
+use public\api\validation\client\Booking_validation;
 use public\api\utility\Session;
 
 class Booking_controller
 {
     private Booking_service $booking_servicee;
-    private Booking_Validation $booking_validation;
+    private Booking_validation $booking_validation;
 
     private string $appBasePath;
 
     public function __construct(string $appBasePath)
     {
         $this->booking_servicee = new Booking_service();
-        $this->booking_validation = new Booking_Validation();
+        $this->booking_validation = new Booking_validation();
 
         $this->appBasePath=$appBasePath;
     }

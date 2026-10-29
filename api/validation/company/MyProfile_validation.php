@@ -5,7 +5,7 @@ namespace public\api\validation\company;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class MyProfile_Validation
+class MyProfile_validation
 {
     private array $allRules;
 

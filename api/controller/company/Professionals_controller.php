@@ -3,19 +3,19 @@
 namespace public\api\controller\company;
 
 use public\api\services\company\Professionals_service;
-use public\api\validation\company\MyProfile_Validation;
+use public\api\validation\company\MyProfile_validation;
 use public\api\utility\Session;
 
 class Professionals_controller
 {
     private Professionals_service $professionals_service;
-    private MyProfile_Validation $my_profile_validation;
+    private MyProfile_validation $my_profile_validation;
     private string $appBasePath;
 
     public function __construct(string $appBasePath)
     {
         $this->professionals_service = new Professionals_service();
-        $this->my_profile_validation = new MyProfile_Validation();
+        $this->my_profile_validation = new MyProfile_validation();
         $this->appBasePath = $appBasePath;
     }
 

@@ -2,7 +2,7 @@
 
 namespace public\api\validation\company;
 
-class Img_Validation
+class Img_validation
 {
 
     private array $availableType;

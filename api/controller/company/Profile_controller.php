@@ -3,25 +3,25 @@
 namespace public\api\controller\company;
 
 use public\api\services\company\Profile_service;
-use public\api\validation\company\profile\Professional_Validation;
-use public\api\validation\company\profile\Company_Validation;
-use public\api\validation\company\Img_Validation;
+use public\api\validation\company\profile\Professional_validation;
+use public\api\validation\company\profile\Company_validation;
+use public\api\validation\company\Img_validation;
 use public\api\utility\Session;
 
 class Profile_controller
 {
     private Profile_service $profile_service;
-    private Img_Validation $img_validation;
-    private Professional_Validation $professional_validation;
-    private Company_Validation $company_validation;
+    private Img_validation $img_validation;
+    private Professional_validation $professional_validation;
+    private Company_validation $company_validation;
     private string $appBasePath;
 
     public function __construct(string $appBasePath)
     {
         $this->profile_service = new Profile_service();
-        $this->img_validation = new Img_Validation();
-        $this->professional_validation = new Professional_Validation();
-        $this->company_validation = new Company_Validation();
+        $this->img_validation = new Img_validation();
+        $this->professional_validation = new Professional_validation();
+        $this->company_validation = new Company_validation();
         $this->appBasePath = $appBasePath;
     }
 

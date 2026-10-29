@@ -2,7 +2,7 @@
 
 namespace public\api\services\company;
 
-use public\api\models\Bookings;
+use public\api\models\bookings;
 use public\api\models\payments;
 
 class Payments_service

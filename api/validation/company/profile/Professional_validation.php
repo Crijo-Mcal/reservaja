@@ -6,7 +6,7 @@ use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 use public\api\utility\PhoneValidator;
 
-class Professional_Validation
+class Professional_validation
 {
 
     private array $rules;

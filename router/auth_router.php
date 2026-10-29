@@ -34,23 +34,23 @@ $router->get(
 // Registar um novo cliente
 $router->post(
     '/auth/client_register',
-    [Auth_Controller::class, 'clientSingup']
+    [Auth_controller::class, 'clientSingup']
 );
 
 // Registar um novo profissional
 $router->post(
     '/auth/employee_register',
-    [Auth_Controller::class, 'employeeSingup']
+    [Auth_controller::class, 'employeeSingup']
 );
 
 // Iniciar sessão
 $router->post(
     '/auth/login',
-    [Auth_Controller::class, 'logIn']
+    [Auth_controller::class, 'logIn']
 );
 
 // Terminar sessão
 $router->post(
     '/auth/logout',
-    [Auth_Controller::class, 'logOut']
+    [Auth_controller::class, 'logOut']
 );

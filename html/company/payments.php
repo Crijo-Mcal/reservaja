@@ -89,7 +89,7 @@ $dataInput = [
                         <a href="<?= $appBasePath ?? '' ?>/html/company/profile.php">
 
                             <img
-                                src="<?= $User['profile_image'] ?? ($appBasePath ?? '').'/assset/image/profile.webp' ?>"
+                                src="<?= $User['profile_image'] ?? ($appBasePath ?? '').'/asset/image/profile.webp' ?>"
                                 alt="Fotografia do profissional"
                                 class="rounded-circle object-fit-cover border"
                                 width="36"
