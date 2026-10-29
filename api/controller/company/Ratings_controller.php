@@ -34,6 +34,11 @@ class Ratings_controller
             exit();
         }
 
+        if ($User['roleInCompany'] !== 'owner') {
+            header('Location:' . ($this->appBasePath ?? '') . '/html/company/ratings.php');
+            exit();
+        }
+
         $data = [
             'professional' => $_GET['professional'] ?? null
         ];
@@ -84,6 +89,11 @@ class Ratings_controller
         $User = $_SESSION['user'] ?? [];
         if (!isset($User) || $User['role'] !== 'professional') {
             header('Location:' . ($this->appBasePath ?? '') . '/html/auth/login.php');
+            exit();
+        }
+
+        if ($User['roleInCompany'] !== 'owner') {
+            header('Location:' . ($this->appBasePath ?? '') . '/html/company/ratings.php');
             exit();
         }
 

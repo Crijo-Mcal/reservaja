@@ -98,6 +98,11 @@ class Profile_controller
             exit();
         }
 
+        if (($user['roleInCompany'] ?? '') !== 'owner') {
+            header('Location: ' . $this->appBasePath . '/html/company/profile.php');
+            exit();
+        }
+
         $data = [
             'company_name' => $_POST['company_name'] ?? '',
             'company_phone' => $_POST['company_phone'] ?? '',
@@ -171,6 +176,11 @@ class Profile_controller
 
         if (!$user || ($user['role'] ?? '') !== 'professional') {
             header('Location: ' . $this->appBasePath . '/html/auth/login.php');
+            exit();
+        }
+
+        if (($user['roleInCompany'] ?? '') !== 'owner') {
+            header('Location: ' . $this->appBasePath . '/html/company/profile.php');
             exit();
         }
 
