@@ -15,12 +15,14 @@ class CallbackIfthenpay_service
     private appointments\Insert $appointments_Insert;
     private appointments\Select $appointments_select;
     private Notification $notification;
+    private payments\Select $payments_select;
 
 
     public function __construct()
     {
         $this->bookings_update = new bookings\Update();
         $this->payment_update = new payments\Update();
+        $this->payments_select = new payments\Select();
         $this->appointments_select = new appointments\Select();
         $this->appointments_update = new appointments\Update();
         $this->appointments_Insert = new appointments\Insert();
@@ -28,8 +30,22 @@ class CallbackIfthenpay_service
 
     }
 
-    public function payment_booking_success(array $data)
+    public function payment_booking_success(array $data): string
     {
+        $payment = $this->payments_select->selectPaymentById($data['payment_id']);
+
+        if (!$payment) {
+            error_log('Ifthenpay callback: pagamento não encontrado id=' . $data['payment_id']);
+            return 'not_found';
+        }
+
+        // A Ifthenpay pode repetir o callback: não criar o agendamento duas vezes
+        if ($payment['status'] === 'paid') {
+            return 'already_paid';
+        }
+
+        $data['booking_id'] = (int) $payment['booking_id'];
+
         $this->appointments_Insert->insert($data['booking_id']);
         $this->payment_update->updateAsPaid($data);
 
@@ -56,6 +72,8 @@ class CallbackIfthenpay_service
            "
             );
         }
+
+        return 'ok';
     }
 
 }

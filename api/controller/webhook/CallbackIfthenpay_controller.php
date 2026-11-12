@@ -24,14 +24,15 @@ class CallbackIfthenpay_controller
 
         $data = [
             'key' => $_GET['key'] ?? null,
-            'booking_id' => $_GET['id'],
+            // [ID] da Ifthenpay = id do pagamento (enviado em Payment_service::createPinPay)
+            'payment_id' => (int) ($_GET['id'] ?? 0),
             'amount' => $_GET['amount'],
             'payment_datetime' => $_GET['payment_datetime'],
             'payment_method' => $_GET['payment_method'],
         ];
 
         error_log('key= '.$data['key'].' ');
-        error_log('booking_id= '.$data['booking_id'].' ');
+        error_log('payment_id= '.$data['payment_id'].' ');
         error_log('amount= '.$data['amount'].' ');
         error_log('payment_datetime= '.$data['payment_datetime'].' ');
         error_log('payment_method= '.$data['payment_method'].' ');
@@ -43,8 +44,14 @@ class CallbackIfthenpay_controller
         }
 
 
-        $this->callback_ifthenpay_service->payment_booking_success($data);
+        $result = $this->callback_ifthenpay_service->payment_booking_success($data);
+
+        if ($result === 'not_found') {
+            http_response_code(404);
+            exit('Payment not found');
+        }
+
         http_response_code(200);
-        exit();
+        exit($result === 'already_paid' ? 'Already paid' : 'OK');
     }
 }

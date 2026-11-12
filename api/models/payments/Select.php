@@ -140,6 +140,22 @@ class Select
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // Usado pelo callback da Ifthenpay: o [ID] enviado é o id do pagamento
+    public function selectPaymentById(int $paymentId): ?array
+    {
+        $stmt = $this->pdo->prepare("
+            SELECT id, booking_id, status
+            FROM payments
+            WHERE id = :id
+            LIMIT 1
+        ");
+
+        $stmt->execute(['id' => $paymentId]);
+        $payment = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $payment ?: null;
+    }
+
     public function selectLastPaymentId(): ?int
     {
         $stmt = $this->pdo->query("
