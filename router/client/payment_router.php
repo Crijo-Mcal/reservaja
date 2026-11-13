@@ -11,7 +11,7 @@ use public\api\controller\client\Payment_controller;
 // Página de pagamento
 $router->get(
     '/html/client/payment/payment.php',
-    null,
+    [Payment_controller::class, 'showData'],
     dirname(__DIR__,2). '/html/client/payment/payment.php'
 );
 

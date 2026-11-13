@@ -30,13 +30,16 @@ class Payment_controller
 
         $User = !isset($_SESSION['user']) || $_SESSION['user'] == '' ? null : $_SESSION['user'];
 
+        // Os dados da reserva (preço, IVA, ...) vêm da base de dados, não do formulário
+        $booking = $this->loadBookingOrRedirect((string) ($_POST['booking_id'] ?? ''));
+
         $data = [
-            'professional_id' => $_POST['professional_id'] ?? '',
-            'booking_id' =>(int) $_POST['booking_id'] ?? '',
-            'service_name' => $_POST['service_name'] ?? '',
-            'service_price' => $_POST['service_price'] ?? '',
-            'service_vat' => $_POST['service_vat'] ?? '',
-            'service_advance_payment' => $_POST['service_advance_payment'] ?? '',
+            'professional_id' => (string) $booking['professional_id'],
+            'booking_id' => $booking['booking_id'],
+            'service_name' => $booking['service_name'],
+            'service_price' => (string) $booking['service_price'],
+            'service_vat' => (string) $booking['service_vat'],
+            'service_advance_payment' => (string) $booking['service_advance_payment'],
             'client_id' => $User['id'] ?? null,
             'client_name' => $_POST['client_name'] ?? '',
             'client_mobile' => $_POST['client_mobile'] ?? '',
@@ -54,7 +57,7 @@ class Payment_controller
                 $inputError['error']['errorMessage']
             );
 
-            header('Location:'.($this->appBasePath ?? '').'/html/client/payment/payment.php');
+            header('Location:' . ($this->appBasePath ?? '') . '/html/client/payment/payment.php?booking_id=' . $data['booking_id']);
             exit();
         }
 
@@ -77,7 +80,49 @@ class Payment_controller
         exit();
     }
 
+    // Página de pagamento: payment.php?booking_id=...
+    public function showData(): array
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            http_response_code(405);
+            exit();
+        }
+
+        return $this->loadBookingOrRedirect((string) ($_GET['booking_id'] ?? ''));
+    }
+
     public function activePayment(){
         return[];
+    }
+
+    /*
+     * Lê a reserva da base de dados. Se não existir ou já não estiver
+     * disponível para pagamento, redireciona com a mensagem de erro.
+     */
+    private function loadBookingOrRedirect(string $bookingId): array
+    {
+        if (!ctype_digit($bookingId) || (int) $bookingId < 1) {
+            header('Location:' . ($this->appBasePath ?? '') . '/html/client/professionals.php');
+            exit();
+        }
+
+        $response = $this->payment_service->getBookingForPayment((int) $bookingId);
+
+        if ($response['success'] === false) {
+            if (empty($response['professional_id'])) {
+                header('Location:' . ($this->appBasePath ?? '') . '/html/client/professionals.php');
+                exit();
+            }
+
+            Session::setError(
+                $response['error']['errorType'],
+                $response['error']['errorMessage']
+            );
+
+            header('Location:' . ($this->appBasePath ?? '') . '/html/client/professional_detail.php?professional_id=' . $response['professional_id']);
+            exit();
+        }
+
+        return $response['data'];
     }
 }

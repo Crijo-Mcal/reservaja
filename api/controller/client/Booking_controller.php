@@ -50,57 +50,48 @@ class Booking_controller
 
         /* input validation */
         $inputError = $this->booking_validation->validate($data);
+
+        // Data ou hora não selecionada: mostrar o aviso na própria página de reserva
+        $bookingFields = ['appointment_date', 'appointment_time', 'appointment_end'];
+
+        if (
+            $inputError['success'] == false &&
+            in_array($inputError['error']['field'], $bookingFields, true)
+        ) {
+            $this->redirectToBooking($data, $inputError['error']['errorMessage']);
+        }
+
         if ($inputError['success'] == false) {
-            Session::setError(
+            $this->redirectToProfessional(
+                $data['professional_id'],
                 $inputError['error']['errorType'],
                 $inputError['error']['errorMessage']
             );
-
-            header(
-                "Location:".($this->appBasePath ?? '')."/html/client/professional_detail.php?professional_id=" .
-                    $data['professional_id']
-            );
-
-            exit();
         }
 
         $response = $this->booking_servicee->insertData($data);
 
         /* database validation */
         if ($response['success'] == false) {
-            Session::setError(
+            // Erro da data/hora escolhida (ex.: horário já ocupado) -> página de reserva
+            if ($response['error']['errorType'] === 'bookingSelection') {
+                $this->redirectToBooking($data, $response['error']['errorMessage']);
+            }
+
+            // Serviço inválido -> página do profissional
+            $this->redirectToProfessional(
+                $data['professional_id'],
                 $response['error']['errorType'],
                 $response['error']['errorMessage']
             );
-
-            header(
-                "Location:".($this->appBasePath ?? '')."/html/client/professional_detail.php?professional_id=" .
-                    $data['professional_id']
-            );
-
-            exit();
         }
 
-        $price = (float) $data['service_price'];
-        $advance = (float) $data['service_advance_payment'];
-
-        $amount = $price * ($advance / 100);
-
-        Session::set('payment_data', [
-            'professional_id' => $_POST['professional_id'] ?? '',
-            'booking_id' => $response['data']['booking_id'],
-            'service_name' => $data['service_name'],
-            'service_duration' => $data['service_duration'],
-            'service_vat' => $data['service_vat'],
-            'service_price' => $data['service_price'],
-            'service_advance_payment' => $data['service_advance_payment'],
-            'amount' => $amount,
-            'appointment_date' => $data['appointment_date'],
-            'appointment_time' => $data['appointment_time'],
-        ]);
-
-
-        header('Location:'.($this->appBasePath ?? '').'/html/client/payment/payment.php');
+        // A página de pagamento lê os dados da reserva da base de dados
+        header(
+            'Location:' . ($this->appBasePath ?? '') . '/html/client/payment/payment.php?' . http_build_query([
+                'booking_id' => $response['data']['booking_id'],
+            ])
+        );
         exit();
     }
 
@@ -111,19 +102,63 @@ class Booking_controller
             exit();
         }
 
-        $professional_id = $_GET['professional_id'] ?? '';
-        $service_id = $_GET['service_id'] ?? '';
+        $professional_id = (string) ($_GET['professional_id'] ?? '');
+        $service_id = (string) ($_GET['service_id'] ?? '');
 
-        $response = $this->booking_servicee->allData($professional_id, $service_id);
-
-        if ($response['success'] == false) {
-
-            Session::setError($response['error']['errorType'], $response['error']['errorMessage']);
-            header("Location:".($this->appBasePath ?? '')."/html/client/professional_detail.php?professional_id=$professional_id");
+        // Sem profissional válido não há página de detalhe para onde voltar
+        if (!ctype_digit($professional_id) || (int) $professional_id < 1) {
+            header('Location:' . ($this->appBasePath ?? '') . '/html/client/professionals.php');
             exit();
-        };
+        }
 
+        if (!ctype_digit($service_id) || (int) $service_id < 1) {
+            $this->redirectToProfessional(
+                $professional_id,
+                'serviceNotFound',
+                'O serviço selecionado não foi encontrado.'
+            );
+        }
+
+        $response = $this->booking_servicee->allData((int) $professional_id, (int) $service_id);
+
+        // Serviço ou horários não encontrados -> página do profissional
+        if ($response['success'] == false) {
+            $this->redirectToProfessional(
+                $professional_id,
+                $response['error']['errorType'],
+                $response['error']['errorMessage']
+            );
+        }
 
         return $response['data'];
+    }
+
+    // Erros da escolha de data/hora: aviso na página de reserva (booking.php)
+    private function redirectToBooking(array $data, string $message): never
+    {
+        Session::setError('bookingSelection', $message);
+
+        header(
+            'Location:' . ($this->appBasePath ?? '') . '/html/client/booking.php?' . http_build_query([
+                'service_id' => $data['service_id'],
+                'professional_id' => $data['professional_id'],
+            ])
+        );
+
+        exit();
+    }
+
+    // Erros do serviço/agenda: aviso na página do profissional
+    private function redirectToProfessional(string $professionalId, string $type, string $message): never
+    {
+        Session::setError($type, $message);
+
+        header(
+            'Location:' . ($this->appBasePath ?? '') . '/html/client/professional_detail.php?' . http_build_query([
+                'professional_id' => $professionalId,
+            ])
+        );
+
+        exit();
     }
 }

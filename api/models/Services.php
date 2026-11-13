@@ -99,17 +99,21 @@ class Services
         return $profesionals ?: null;
     }
 
-    public function selectAllDataByServiceID(int $service_id): ?array
+    // Serviço ativo que pertence ao profissional indicado
+    public function selectAllDataByServiceID(int $service_id, int $professional_id): ?array
     {
         $stmt = $this->pdo->prepare("
         SELECT *
         FROM services
         WHERE id = :service_id
+        AND professional_id = :professional_id
+        AND status = 'active'
         LIMIT 1
         ");
 
         $stmt->execute([
-            'service_id' => $service_id
+            'service_id' => $service_id,
+            'professional_id' => $professional_id
         ]);
 
         $profesionals = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -187,10 +191,13 @@ class Services
         SELECT COUNT(*)
         FROM services
         WHERE id = :service_id
+        AND professional_id = :professional_id
+        AND status = 'active'
         ");
 
         $stmt->execute([
-            'service_id' => $data['service_id']
+            'service_id' => $data['service_id'],
+            'professional_id' => $data['professional_id']
         ]);
 
         return (int) $stmt->fetchColumn() > 0;

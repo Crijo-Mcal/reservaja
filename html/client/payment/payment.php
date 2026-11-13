@@ -1,11 +1,7 @@
 <?php
 
-$payment_data = $_SESSION['payment_data'] ?? [];
-
-if (count($payment_data) <= 0) {
-    header('Location:' . ($appBasePath ?? '') . '/html/client/professionals.php');
-    exit();
-}
+// Dados da reserva lidos da base de dados (Payment_controller::showData)
+$payment_data = $dataBase ?? [];
 
 $error = $_SESSION['error'] ?? null;
 
@@ -457,74 +453,12 @@ $remainingAmount =
 
                                     <!-- DADOS OCULTOS DA RESERVA -->
 
-                                    <input
-                                        type="hidden"
-                                        name="professional_id"
-                                        value="<?= htmlspecialchars(
-                                                    $payment_data['professional_id']
-                                                ) ?>">
-
+                                    <!-- Só o id: o resto é lido da base de dados no Payment_controller -->
                                     <input
                                         type="hidden"
                                         name="booking_id"
                                         value="<?= htmlspecialchars(
-                                                    $payment_data['booking_id']
-                                                ) ?>">
-
-                                    <input
-                                        type="hidden"
-                                        name="service_name"
-                                        value="<?= htmlspecialchars(
-                                                    $payment_data['service_name']
-                                                ) ?>">
-
-                                    <input
-                                        type="hidden"
-                                        name="service_duration"
-                                        value="<?= htmlspecialchars(
-                                                    $payment_data['service_duration']
-                                                ) ?>">
-
-                                    <input
-                                        type="hidden"
-                                        name="service_vat"
-                                        value="<?= htmlspecialchars(
-                                                    $payment_data['service_vat']
-                                                ) ?>">
-
-                                    <input
-                                        type="hidden"
-                                        name="service_price"
-                                        value="<?= htmlspecialchars(
-                                                    $payment_data['service_price']
-                                                ) ?>">
-
-                                    <input
-                                        type="hidden"
-                                        name="service_advance_payment"
-                                        value="<?= htmlspecialchars(
-                                                    $payment_data['service_advance_payment']
-                                                ) ?>">
-
-                                    <input
-                                        type="hidden"
-                                        name="remaining_amount"
-                                        value="<?= htmlspecialchars(
-                                                    $remainingAmount
-                                                ) ?>">
-
-                                    <input
-                                        type="hidden"
-                                        name="appointment_date"
-                                        value="<?= htmlspecialchars(
-                                                    $payment_data['appointment_date']
-                                                ) ?>">
-
-                                    <input
-                                        type="hidden"
-                                        name="appointment_time"
-                                        value="<?= htmlspecialchars(
-                                                    $payment_data['appointment_time']
+                                                    (string) $payment_data['booking_id']
                                                 ) ?>">
 
                                 </div>

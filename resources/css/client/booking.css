@@ -8,6 +8,18 @@
     max-width: 760px;
 }
 
+/* Alerta (mesmo estilo da página do profissional, em tamanho compacto) */
+.rj-alert {
+    border-color: var(--color-warning-2);
+    background: var(--color-warning-2);
+    color: var(--color1);
+}
+
+.rj-alert .btn-close {
+    padding: 0.75rem 1rem;
+    font-size: 0.65rem;
+}
+
 /* Campo de seleção */
 .form-select {
     min-height: 42px;

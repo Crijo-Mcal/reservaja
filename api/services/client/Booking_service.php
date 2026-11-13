@@ -47,7 +47,7 @@ class Booking_service
         $appointments_datas = $this->appointment_select->selectAppointmentSchedule($professional_id) ?? [];
         $bookings_datas=$this->booking_select->selectBookingSchedule($professional_id);
         $schedules_datas = $this->scheduleTable->selectAllDataByID($professional_id) ?? [];
-        $services_datas = $this->serviceTable->selectAllDataByServiceID($service_id) ?? [];
+        $services_datas = $this->serviceTable->selectAllDataByServiceID($service_id, $professional_id) ?? [];
 
 
         if (empty($services_datas)) {
@@ -181,6 +181,16 @@ class Booking_service
                 }
             );
 
+            /* Filter past hours (today) */
+            if ($schedule['date'] === date('Y-m-d')) {
+                $now = time();
+
+                $available_hours = array_filter(
+                    $available_hours,
+                    fn($hour) => strtotime($hour) > $now
+                );
+            }
+
             $available_hours = array_values($available_hours);
 
             if (!empty($available_hours)) {
@@ -227,26 +237,36 @@ class Booking_service
         $isServiceValid = $this->serviceTable->isServiceExist($data);
 
 
+        // Serviço -> erro na página do profissional
         if (!$isServiceValid) {
             return [
                 'success' => false,
                 'error' => [
-                    'errorType' => 'invalidBooking',
+                    'errorType' => 'serviceNotFound',
                     'errorMessage' => 'O serviço selecionado não é válido.'
                 ]
             ];
         }
 
-
-
+        // Data/hora escolhida -> erro na página de reserva (bookingSelection)
         $isDateValid = $this->scheduleTable->cheackDateByDate($data['professional_id'], $data['appointment_date']);
 
         if (!$isDateValid) {
             return [
                 'success' => false,
                 'error' => [
-                    'errorType' => 'invalidBooking',
-                    'errorMessage' => 'A agenda deste profissional está cheia neste momento.'
+                    'errorType' => 'bookingSelection',
+                    'errorMessage' => 'A data selecionada não está disponível.'
+                ]
+            ];
+        }
+
+        if (strtotime($data['appointment_date'] . ' ' . $data['appointment_time']) <= time()) {
+            return [
+                'success' => false,
+                'error' => [
+                    'errorType' => 'bookingSelection',
+                    'errorMessage' => 'O horário selecionado já passou.'
                 ]
             ];
         }
@@ -257,7 +277,7 @@ class Booking_service
             return [
                 'success' => false,
                 'error' => [
-                    'errorType' => 'invalidBooking',
+                    'errorType' => 'bookingSelection',
                     'errorMessage' => 'O horário selecionado já foi escolhido por outro cliente.'
                 ]
             ];

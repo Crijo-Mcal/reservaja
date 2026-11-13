@@ -7,6 +7,10 @@ $User = isset($_SESSION['user']) && $_SESSION['user']['role'] === 'client'
 $dataBase = $dataBase ?? [];
 $service = $dataBase['service'] ?? [];
 
+// Aviso de data/hora não selecionada (enviado pelo Booking_controller)
+$bookingError = $_SESSION['error']['bookingSelection'] ?? null;
+unset($_SESSION['error']['bookingSelection']);
+
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +40,22 @@ $service = $dataBase['service'] ?? [];
         <div class="container py-4 py-md-5">
 
             <div class="booking-container mx-auto">
+
+                <!-- Alerta -->
+                <?php if ($bookingError): ?>
+                    <div class="alert rj-alert alert-dismissible fade show small py-2 mb-3 cs-fadeIn-y1" role="alert">
+                        <p class="mb-0">
+                            <?= htmlspecialchars($bookingError) ?>
+                        </p>
+
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Fechar">
+                        </button>
+                    </div>
+                <?php endif; ?>
 
                 <!-- Informação do serviço -->
                 <div class="row g-3 mb-4">
@@ -151,8 +171,7 @@ $service = $dataBase['service'] ?? [];
                                 <select
                                     id="bookingDate"
                                     name="appointment_date"
-                                    class="form-select"
-                                    required>
+                                    class="form-select">
 
                                     <option value="">
                                         Selecionar data
@@ -210,6 +229,7 @@ $service = $dataBase['service'] ?? [];
         const dataBase = <?= json_encode($dataBase) ?>;
     </script>
 
+    <script src="<?= $appBasePath ?? '' ?>/resources/bootstrap/bootstrap.min.js"></script>
     <script src="<?= $appBasePath ?? '' ?>/resources/js/client/booking/index.js"></script>
 
 </body>

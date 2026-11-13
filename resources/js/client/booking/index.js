@@ -5,7 +5,6 @@ const availableData = Array.isArray(dataBase.available_data)
 const bookingDate = document.querySelector("#bookingDate");
 const bookingHours = document.querySelector("#bookingHours");
 const appointmentTime = document.querySelector("#appointmentTime");
-const bookingForm = document.querySelector("#bookingForm");
 
 function formatDate(date) {
     const [year, month, day] = date.split("-");
@@ -99,22 +98,7 @@ bookingDate.addEventListener("change", () => {
     renderAvailableHours(bookingDate.value);
 });
 
-bookingForm.addEventListener("submit", (event) => {
-    if (!bookingDate.value) {
-        event.preventDefault();
-
-        alert("Selecione uma data.");
-        bookingDate.focus();
-
-        return;
-    }
-
-    if (!appointmentTime.value) {
-        event.preventDefault();
-
-        alert("Selecione uma hora.");
-        return;
-    }
-});
+// A validação da data e da hora é feita no servidor (Booking_validation);
+// o erro é apresentado na página do profissional.
 
 renderAvailableDates();

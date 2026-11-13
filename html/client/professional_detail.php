@@ -153,6 +153,7 @@ $companyDescription = $company['description'] ?? '';
                 <div class="alert rj-alert alert-dismissible fade show mb-0" role="alert">
                     <p class="mb-0">
                         <?= htmlspecialchars($error['noSchedule'] ?? '') ?>
+                        <?= htmlspecialchars($error['serviceNotFound'] ?? '') ?>
                         <?= htmlspecialchars($error['invalidBooking'] ?? '') ?>
                         <?= htmlspecialchars($error['invalidPayment'] ?? '') ?>
                     </p>

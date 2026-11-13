@@ -139,11 +139,15 @@ class Booking_validation
         );
 
         if (count($violations) > 0) {
+            $violation = $violations->get(0);
+
             return [
                 'success' => false,
                 'error' => [
                     'errorType' => 'invalidBooking',
-                    'errorMessage' => $violations->get(0)->getMessage(),
+                    'errorMessage' => $violation->getMessage(),
+                    // ex.: "[appointment_time]" -> "appointment_time"
+                    'field' => trim($violation->getPropertyPath(), '[]'),
                 ],
             ];
         }

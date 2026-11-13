@@ -13,6 +13,7 @@ class Payment_service
     private payments\Update $payments_update;
     private bookings\Validation $bookings_validation;
     private bookings\Update $bookings_update;
+    private bookings\Select $bookings_select;
 
     public function __construct()
     {
@@ -20,7 +21,57 @@ class Payment_service
         $this->payments_select = new payments\Select();
         $this->payments_update = new payments\Update();
         $this->bookings_update = new bookings\Update();
+        $this->bookings_select = new bookings\Select();
         $this->bookings_validation = new bookings\Validation();
+    }
+
+    /*
+     * Dados da reserva para a página de pagamento, lidos da base de dados.
+     * A reserva tem de estar pendente e ainda não expirada.
+     */
+    public function getBookingForPayment(int $booking_id): array
+    {
+        $booking = $this->bookings_select->selectBookingById($booking_id);
+
+        if (!$booking) {
+            return [
+                'success' => false,
+                'error' => [
+                    'errorType' => 'bookingNotFound',
+                    'errorMessage' => 'A marcação não foi encontrada.'
+                ]
+            ];
+        }
+
+        if (!$this->bookings_validation->isBookingValidForPayment($booking_id)) {
+            return [
+                'success' => false,
+                'professional_id' => $booking['professional_id'],
+                'error' => [
+                    'errorType' => 'invalidBooking',
+                    'errorMessage' => 'A marcação expirou ou já não está disponível. Por favor, escolha um novo horário.'
+                ]
+            ];
+        }
+
+        $price = (float) $booking['service_price'];
+        $advance = (float) $booking['service_advance_payment'];
+
+        return [
+            'success' => true,
+            'data' => [
+                'booking_id' => (int) $booking['id'],
+                'professional_id' => (int) $booking['professional_id'],
+                'service_name' => $booking['service_name'],
+                'service_duration' => $booking['service_duration'],
+                'service_price' => $price,
+                'service_vat' => (float) $booking['service_vat'],
+                'service_advance_payment' => $advance,
+                'amount' => $price * ($advance / 100),
+                'appointment_date' => $booking['appointment_date'],
+                'appointment_time' => substr($booking['appointment_time'], 0, 5),
+            ]
+        ];
     }
 
     public function processPayment(array $data, string $appBasePath)
