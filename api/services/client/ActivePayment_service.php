@@ -28,13 +28,28 @@ class ActivePayment_service
         return $this->payments_select->selectPendingPaymentsByClientId($client_id);
     }
 
-    public function cancel_payment(array $data): void
+    /*
+     * Cancela o pagamento da reserva identificada pelo token.
+     * O id da reserva e o URL da Ifthenpay vêm da base de dados, nunca do pedido.
+     */
+    public function cancel_payment(string $booking_token, int $client_id): bool
     {
+        $payment = $this->payments_select->selectPendingPaymentByBookingToken($booking_token, $client_id);
+
+        // Não existe, já não está pendente, ou pertence a outro cliente
+        if (!$payment) {
+            return false;
+        }
 
         //disable pinpay
-        $this->disablePinpay($data['url']);
+        if (!empty($payment['redirect_url'])) {
+            $this->disablePinpay($payment['redirect_url']);
+        }
+
         //update table payment and booking
-        $this->payments_update->cancelPayment($data['booking_id']);
+        $this->payments_update->cancelPayment((int) $payment['booking_id']);
+
+        return true;
     }
 
     private function disablePinpay(string $url): void
@@ -65,8 +80,10 @@ class ActivePayment_service
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         curl_close($curl);
-        var_dump($response); 
-        var_dump($httpCode);
 
+        // Sem var_dump: qualquer saída aqui impedia o redirecionamento do controller
+        if ($response === false || $httpCode < 200 || $httpCode >= 300) {
+            error_log('Ifthenpay disable pinpay falhou: HTTP ' . $httpCode . ' ' . (string) $response);
+        }
     }
 }

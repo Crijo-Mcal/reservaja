@@ -34,6 +34,25 @@ class Select
         return $result ?: null;
     }
 
+    // Página de pagamento: a reserva é identificada pelo token do URL
+    public function selectBookingByToken(string $token): ?array
+    {
+        $stmt = $this->pdo->prepare("
+        SELECT *
+        FROM bookings
+        WHERE token = :token
+        LIMIT 1
+        ");
+
+        $stmt->execute([
+            'token' => $token
+        ]);
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result ?: null;
+    }
+
     public function selectLastBookingId(int $professional_id): int
     {
         $sql = "

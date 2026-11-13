@@ -50,21 +50,15 @@ class ActivePayment_controller
             exit();
         }
 
-        $data = [
-            'url' => $_GET['url'],
-            'booking_id' => $_GET['booking_id'],
-        ];
+        // A reserva é identificada pelo token; o id e o URL da Ifthenpay
+        // são lidos da base de dados no service
+        $token = (string) ($_GET['booking'] ?? '');
 
-        /* var_dump($data);
-        exit(); */
-
-        $this->active_payment_service->cancel_payment($data);
-
+        if (preg_match('/^[a-f0-9]{32}$/', $token)) {
+            $this->active_payment_service->cancel_payment($token, (int) $user['id']);
+        }
 
         header('Location:'.($this->appBasePath ?? '').'/html/client/active_payment.php');
-        exit();
-
-        var_dump($_GET);
         exit();
     }
 }

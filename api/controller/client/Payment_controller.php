@@ -31,7 +31,7 @@ class Payment_controller
         $User = !isset($_SESSION['user']) || $_SESSION['user'] == '' ? null : $_SESSION['user'];
 
         // Os dados da reserva (preço, IVA, ...) vêm da base de dados, não do formulário
-        $booking = $this->loadBookingOrRedirect((string) ($_POST['booking_id'] ?? ''));
+        $booking = $this->loadBookingOrRedirect((string) ($_POST['booking'] ?? ''));
 
         $data = [
             'professional_id' => (string) $booking['professional_id'],
@@ -57,7 +57,7 @@ class Payment_controller
                 $inputError['error']['errorMessage']
             );
 
-            header('Location:' . ($this->appBasePath ?? '') . '/html/client/payment/payment.php?booking_id=' . $data['booking_id']);
+            header('Location:' . ($this->appBasePath ?? '') . '/html/client/payment/payment.php?booking=' . $booking['booking_token']);
             exit();
         }
 
@@ -80,7 +80,7 @@ class Payment_controller
         exit();
     }
 
-    // Página de pagamento: payment.php?booking_id=...
+    // Página de pagamento: payment.php?booking=<token>
     public function showData(): array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
@@ -88,7 +88,7 @@ class Payment_controller
             exit();
         }
 
-        return $this->loadBookingOrRedirect((string) ($_GET['booking_id'] ?? ''));
+        return $this->loadBookingOrRedirect((string) ($_GET['booking'] ?? ''));
     }
 
     public function activePayment(){
@@ -96,17 +96,18 @@ class Payment_controller
     }
 
     /*
-     * Lê a reserva da base de dados. Se não existir ou já não estiver
+     * Lê a reserva da base de dados pelo token. Se não existir ou já não estiver
      * disponível para pagamento, redireciona com a mensagem de erro.
      */
-    private function loadBookingOrRedirect(string $bookingId): array
+    private function loadBookingOrRedirect(string $token): array
     {
-        if (!ctype_digit($bookingId) || (int) $bookingId < 1) {
+        // token = 32 caracteres hexadecimais (bin2hex(random_bytes(16)))
+        if (!preg_match('/^[a-f0-9]{32}$/', $token)) {
             header('Location:' . ($this->appBasePath ?? '') . '/html/client/professionals.php');
             exit();
         }
 
-        $response = $this->payment_service->getBookingForPayment((int) $bookingId);
+        $response = $this->payment_service->getBookingForPayment($token);
 
         if ($response['success'] === false) {
             if (empty($response['professional_id'])) {

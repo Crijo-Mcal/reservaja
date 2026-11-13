@@ -171,12 +171,41 @@ class Select
     }
 
 
+    /*
+     * Pagamento pendente a cancelar, encontrado pelo token da reserva.
+     * Só devolve resultado se a reserva pertencer ao cliente com sessão iniciada.
+     */
+    public function selectPendingPaymentByBookingToken(string $token, int $clientId): ?array
+    {
+        $stmt = $this->pdo->prepare("
+        SELECT
+            b.id AS booking_id,
+            p.redirect_url
+        FROM bookings b
+        INNER JOIN payments p
+            ON p.booking_id = b.id
+        WHERE b.token = :token
+          AND b.client_id = :client_id
+          AND p.status = 'pending'
+        LIMIT 1
+        ");
+
+        $stmt->execute([
+            'token' => $token,
+            'client_id' => $clientId,
+        ]);
+
+        $payment = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $payment ?: null;
+    }
 
     public function selectPendingPaymentsByClientId(int $clientId): array
     {
         $sql = "
         SELECT
             b.id AS booking_id,
+            b.token AS booking_token,
             b.client_id,
             b.service_price,
             b.service_name,

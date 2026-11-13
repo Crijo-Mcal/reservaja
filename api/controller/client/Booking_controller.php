@@ -89,7 +89,7 @@ class Booking_controller
         // A página de pagamento lê os dados da reserva da base de dados
         header(
             'Location:' . ($this->appBasePath ?? '') . '/html/client/payment/payment.php?' . http_build_query([
-                'booking_id' => $response['data']['booking_id'],
+                'booking' => $response['data']['booking_token'],
             ])
         );
         exit();

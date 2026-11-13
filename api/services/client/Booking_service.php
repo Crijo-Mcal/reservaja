@@ -283,14 +283,13 @@ class Booking_service
             ];
         }
         /* Create booking */
-        $this->booking_insert->insert($data);
-
-        $booking_id = $this->booking_select->selectLastBookingId($data['professional_id']);
+        $booking = $this->booking_insert->insert($data);
 
         return [
             'success' => true,
             'data' => [
-                'booking_id' => (string) $booking_id
+                'booking_id' => (string) $booking['id'],
+                'booking_token' => $booking['token']
             ]
         ];
     }

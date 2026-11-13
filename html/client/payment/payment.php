@@ -453,12 +453,12 @@ $remainingAmount =
 
                                     <!-- DADOS OCULTOS DA RESERVA -->
 
-                                    <!-- Só o id: o resto é lido da base de dados no Payment_controller -->
+                                    <!-- Só o token: o resto é lido da base de dados no Payment_controller -->
                                     <input
                                         type="hidden"
-                                        name="booking_id"
+                                        name="booking"
                                         value="<?= htmlspecialchars(
-                                                    (string) $payment_data['booking_id']
+                                                    (string) $payment_data['booking_token']
                                                 ) ?>">
 
                                 </div>

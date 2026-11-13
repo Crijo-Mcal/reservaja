@@ -84,7 +84,7 @@ $data = $dataBase ?? [];
                                     </a>
 
                                     <a
-                                        href="<?= $appBasePath ?? '' ?>/html/client/active_payment.php/cancel_payment?url=<?= urlencode((string) $payment['redirect_url']) ?>&booking_id=<?= urlencode((string) $payment['booking_id']) ?>"
+                                        href="<?= $appBasePath ?? '' ?>/html/client/active_payment.php/cancel_payment?booking=<?= urlencode((string) $payment['booking_token']) ?>"
                                         class="btn btn-cancel-payment">
                                         Cancelar pagamento
                                     </a>

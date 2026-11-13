@@ -14,12 +14,20 @@ class Insert
         $this->pdo = Database::connection();
     }
 
-    public function insert(array $data): bool
+    /*
+     * Cria a reserva e devolve o id e o token.
+     * O token (aleatório) é usado no URL da página de pagamento,
+     * para que ninguém consiga abrir a reserva de outra pessoa adivinhando o id.
+     */
+    public function insert(array $data): array
     {
+        $token = bin2hex(random_bytes(16));
+
         $expiredAt = date('Y-m-d H:i:s', strtotime('+20 minutes'));
 
         $stmt = $this->pdo->prepare("
             INSERT INTO bookings (
+                token,
                 professional_id,
                 appointment_date,
                 appointment_time,
@@ -32,6 +40,7 @@ class Insert
                 service_advance_payment,
                 expired_at
             ) VALUES (
+                :token,
                 :professional_id,
                 :appointment_date,
                 :appointment_time,
@@ -46,7 +55,8 @@ class Insert
             )
         ");
 
-        return $stmt->execute([
+        $stmt->execute([
+            'token' => $token,
             'professional_id' => $data['professional_id'],
             'appointment_date' => $data['appointment_date'],
             'appointment_time' => $data['appointment_time'],
@@ -59,5 +69,11 @@ class Insert
             'service_advance_payment' => $data['service_advance_payment'],
             'expired_at' => $expiredAt
         ]);
+
+        // id desta inserção (seguro mesmo com várias reservas ao mesmo tempo)
+        return [
+            'id' => (int) $this->pdo->lastInsertId(),
+            'token' => $token,
+        ];
     }
 }

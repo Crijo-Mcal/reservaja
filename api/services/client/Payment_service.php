@@ -29,9 +29,9 @@ class Payment_service
      * Dados da reserva para a página de pagamento, lidos da base de dados.
      * A reserva tem de estar pendente e ainda não expirada.
      */
-    public function getBookingForPayment(int $booking_id): array
+    public function getBookingForPayment(string $token): array
     {
-        $booking = $this->bookings_select->selectBookingById($booking_id);
+        $booking = $this->bookings_select->selectBookingByToken($token);
 
         if (!$booking) {
             return [
@@ -43,7 +43,7 @@ class Payment_service
             ];
         }
 
-        if (!$this->bookings_validation->isBookingValidForPayment($booking_id)) {
+        if (!$this->bookings_validation->isBookingValidForPayment((int) $booking['id'])) {
             return [
                 'success' => false,
                 'professional_id' => $booking['professional_id'],
@@ -61,6 +61,7 @@ class Payment_service
             'success' => true,
             'data' => [
                 'booking_id' => (int) $booking['id'],
+                'booking_token' => $booking['token'],
                 'professional_id' => (int) $booking['professional_id'],
                 'service_name' => $booking['service_name'],
                 'service_duration' => $booking['service_duration'],
