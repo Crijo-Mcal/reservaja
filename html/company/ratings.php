@@ -169,11 +169,13 @@ $roleLabels = [
                                             </div>
                                         </div>
 
+                                        <?php if (($User['roleInCompany'] ?? '') === 'owner'): ?>
+                                        <!-- Eliminar: só o proprietário (verificado também no Ratings_controller) -->
                                         <form
                                             action="<?= $appBasePath ?>/html/company/ratings.php/delete"
                                             method="POST">
-                                            <input type="hidden" name="professional" value="<?=$_GET['professional']?>">
-                                            <input type="hidden" name="rating_id" value="<?=$rating['id']?>">
+                                            <input type="hidden" name="professional" value="<?= htmlspecialchars((string) ($_GET['professional'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+                                            <input type="hidden" name="rating_id" value="<?= (int) $rating['id'] ?>">
                                             <button type="submit" class="rating-delete rounded-3" title="Eliminar avaliação" aria-label="Eliminar avaliação">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M10 11v6" />
@@ -184,6 +186,7 @@ $roleLabels = [
                                                 </svg>
                                             </button>
                                         </form>
+                                        <?php endif; ?>
                                     </div>
 
                                     <div class="rating-item-score d-flex align-items-center gap-2">

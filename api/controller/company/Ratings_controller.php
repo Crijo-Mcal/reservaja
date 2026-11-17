@@ -34,13 +34,13 @@ class Ratings_controller
             exit();
         }
 
-        if ($User['roleInCompany'] !== 'owner') {
-            header('Location:' . ($this->appBasePath ?? '') . '/html/company/ratings.php');
-            exit();
-        }
+        // Todos os profissionais podem ver a página. Só o proprietário escolhe
+        // o profissional; os outros veem apenas as suas próprias avaliações.
+        // (Antes redirecionava para esta mesma página -> ciclo infinito.)
+        $isOwner = ($User['roleInCompany'] ?? '') === 'owner';
 
         $data = [
-            'professional' => $_GET['professional'] ?? null
+            'professional' => $isOwner ? $this->validProfessionalFilter($_GET['professional'] ?? null) : null
         ];
 
         $response = $this->ratings_service->alltData($data, $User['id']);
@@ -90,18 +90,35 @@ class Ratings_controller
             exit();
         }
 
-        if ($User['roleInCompany'] !== 'owner') {
+        // Só o proprietário pode eliminar avaliações
+        if (($User['roleInCompany'] ?? '') !== 'owner') {
             header('Location:' . ($this->appBasePath ?? '') . '/html/company/ratings.php');
             exit();
         }
 
-        $data = [
-            'rating_id' => $_POST['rating_id'] ?? '',
-            'professional' => $_POST['professional'] ?? ''
-        ];
+        $ratingId = (string) ($_POST['rating_id'] ?? '');
+        $professional = $this->validProfessionalFilter($_POST['professional'] ?? null);
 
-        $this->ratings_service->deleteRating($data);
+        if (ctype_digit($ratingId) && (int) $ratingId > 0) {
+            $this->ratings_service->deleteRating(['rating_id' => (int) $ratingId]);
+        }
 
-        header('Location:' . ($this->appBasePath ?? '') . '/html/company/ratings.php?professional='.$data['professional']);
+        // Voltar à mesma lista (mesmo filtro) de onde veio o pedido
+        $query = $professional !== null ? '?' . http_build_query(['professional' => $professional]) : '';
+
+        header('Location:' . ($this->appBasePath ?? '') . '/html/company/ratings.php' . $query);
+        exit();
+    }
+
+    // Filtro de profissional aceite: 'all' ou um id numérico; qualquer outro valor é ignorado
+    private function validProfessionalFilter(mixed $value): ?string
+    {
+        $value = is_string($value) ? $value : '';
+
+        if ($value === 'all' || (ctype_digit($value) && (int) $value > 0)) {
+            return $value;
+        }
+
+        return null;
     }
 }
