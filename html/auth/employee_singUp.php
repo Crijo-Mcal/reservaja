@@ -12,6 +12,7 @@ unset($_SESSION['error'], $_SESSION['oldData']);
 <html lang="pt">
 
 <head>
+    <?php require __DIR__ . '/../layout/favicon.php'; ?>
 
     <meta charset="UTF-8">
     <meta

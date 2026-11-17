@@ -2,6 +2,7 @@
 <html lang="pt-PT">
 
 <head>
+    <?php require __DIR__ . '/../../layout/favicon.php'; ?>
 
     <meta charset="UTF-8">
 

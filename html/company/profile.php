@@ -37,6 +37,7 @@ $companyLogo = $company['logo']
 <html lang="pt-PT">
 
 <head>
+    <?php require __DIR__ . '/../layout/favicon.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ReservaJá - Meu Perfil</title>

@@ -19,6 +19,7 @@ $roleLabels = [
 <html lang="pt-PT">
 
 <head>
+    <?php require __DIR__ . '/../layout/favicon.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ReservaJá - Avaliações</title>
@@ -151,12 +152,15 @@ $roleLabels = [
                                 $ratingValue = (int) ($rating['rating'] ?? 0);
                                 $professionalId = (string) ($rating['professional_id'] ?? '');
                                 ?>
-                                <article class="rating-item p-4" data-professional="<?= htmlspecialchars($professionalId, ENT_QUOTES, 'UTF-8') ?>">
-                                    <div class="rating-item-header d-flex align-items-center justify-content-between gap-3">
-                                        <div class="rating-client d-flex align-items-center gap-3">
-                                            <div class="rating-client-avatar rounded-circle flex-shrink-0">
-                                                <?= htmlspecialchars($initials, ENT_QUOTES, 'UTF-8') ?>
-                                            </div>
+                                <!-- Avaliação: avatar | conteúdo | ações -->
+                                <article class="rating-item" data-professional="<?= htmlspecialchars($professionalId, ENT_QUOTES, 'UTF-8') ?>">
+                                    <div class="rating-client-avatar rounded-circle">
+                                        <?= htmlspecialchars($initials, ENT_QUOTES, 'UTF-8') ?>
+                                    </div>
+
+                                    <div class="rating-item-body">
+                                        <!-- Cliente, data e classificação -->
+                                        <div class="rating-item-top">
                                             <div class="rating-client-details">
                                                 <h6 class="rating-client-name">
                                                     <?= htmlspecialchars($clientName, ENT_QUOTES, 'UTF-8') ?>
@@ -167,9 +171,44 @@ $roleLabels = [
                                                     </span>
                                                 <?php endif; ?>
                                             </div>
+
+                                            <div class="rating-item-score d-flex align-items-center gap-2">
+                                                <div class="rating-stars">
+                                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                                                            fill="<?= $i <= $ratingValue ? 'currentColor' : 'none' ?>"
+                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 0-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+                                                        </svg>
+                                                    <?php endfor; ?>
+                                                </div>
+                                                <span class="rating-score-value"><?= $ratingValue ?><span>/5</span></span>
+                                            </div>
                                         </div>
 
-                                        <?php if (($User['roleInCompany'] ?? '') === 'owner'): ?>
+                                        <!-- Profissional e serviço -->
+                                        <div class="rating-meta">
+                                            <?php if (($_GET['professional'] ?? 'all') === 'all'): ?>
+                                                <span class="rating-chip">
+                                                    <span class="rating-info-label">Profissional</span>
+                                                    <?= htmlspecialchars($rating['professional_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+                                                </span>
+                                            <?php endif; ?>
+                                            <span class="rating-chip">
+                                                <span class="rating-info-label">Serviço</span>
+                                                <?= htmlspecialchars($rating['service_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+                                            </span>
+                                        </div>
+
+                                        <!-- Comentário -->
+                                        <p class="rating-comment <?= empty($rating['description']) ? 'rating-comment-empty' : '' ?>">
+                                            <?= !empty($rating['description'])
+                                                ? nl2br(htmlspecialchars($rating['description'], ENT_QUOTES, 'UTF-8'))
+                                                : 'Sem comentário.' ?>
+                                        </p>
+                                    </div>
+
+                                    <?php if (($User['roleInCompany'] ?? '') === 'owner'): ?>
                                         <!-- Eliminar: só o proprietário (verificado também no Ratings_controller) -->
                                         <form
                                             action="<?= $appBasePath ?>/html/company/ratings.php/delete"
@@ -186,43 +225,7 @@ $roleLabels = [
                                                 </svg>
                                             </button>
                                         </form>
-                                        <?php endif; ?>
-                                    </div>
-
-                                    <div class="rating-item-score d-flex align-items-center gap-2">
-                                        <div class="rating-stars">
-                                            <?php for ($i = 1; $i <= 5; $i++): ?>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
-                                                    fill="<?= $i <= $ratingValue ? 'currentColor' : 'none' ?>"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 0-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
-                                                </svg>
-                                            <?php endfor; ?>
-                                        </div>
-                                        <span class="rating-score-value"><?= $ratingValue ?><span>/5</span></span>
-                                    </div>
-
-                                    <?php if (($_GET['professional'] ?? 'all') === 'all'): ?>
-                                        <div class="rating-item-service d-flex flex-wrap align-items-center gap-2">
-                                            <span class="rating-info-label">Profissional</span>
-                                            <span class="rating-service-name">
-                                                <?= htmlspecialchars($rating['professional_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>
-                                            </span>
-                                        </div>
                                     <?php endif; ?>
-
-                                    <div class="rating-item-service d-flex flex-wrap align-items-center gap-2">
-                                        <span class="rating-info-label">Serviço</span>
-                                        <span class="rating-service-name">
-                                            <?= htmlspecialchars($rating['service_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>
-                                        </span>
-                                    </div>
-
-                                    <p class="rating-comment mt-3 mb-0 <?= empty($rating['description']) ? 'rating-comment-empty' : '' ?>">
-                                        <?= !empty($rating['description'])
-                                            ? nl2br(htmlspecialchars($rating['description'], ENT_QUOTES, 'UTF-8'))
-                                            : 'Sem comentário.' ?>
-                                    </p>
                                 </article>
                             <?php endforeach; ?>
                         </div>
