@@ -119,12 +119,12 @@
 }
 
 .rating-separator {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 12px;
 }
 
 .rating-count {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 12px;
     line-height: 1;
 }
@@ -165,7 +165,7 @@
 .company-info span {
     display: block;
     margin-top: 2px;
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 12px;
     line-height: 1.4;
 }
@@ -221,7 +221,7 @@
 }
 
 .rating-professional-speciality {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 12px;
     line-height: 1.4;
 }
@@ -263,7 +263,7 @@
 #ratingModal .rating-text {
     min-height: 18px;
     margin-top: .35rem;
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 12px;
 }
 
@@ -279,7 +279,7 @@
 }
 
 #ratingModal .rating-description::placeholder {
-    color: var(--color4);
+    color: var(--color-text-secondary);
 }
 
 #ratingModal .rating-description:focus {

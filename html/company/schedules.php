@@ -266,7 +266,7 @@ $databaseSchedules = $dataBase ?? [];
                         <div class="mb-3">
                             <label
                                 for="editScheduleDate"
-                                class="form-label small fw-medium">
+                                class="form-label fw-medium">
                                 Data
                             </label>
 
@@ -284,7 +284,7 @@ $databaseSchedules = $dataBase ?? [];
                             <div class="col-12 col-md-6">
                                 <label
                                     for="editScheduleStart"
-                                    class="form-label small fw-medium">
+                                    class="form-label fw-medium">
                                     Hora de início
                                 </label>
 
@@ -300,7 +300,7 @@ $databaseSchedules = $dataBase ?? [];
                             <div class="col-12 col-md-6">
                                 <label
                                     for="editScheduleEnd"
-                                    class="form-label small fw-medium">
+                                    class="form-label fw-medium">
                                     Hora de fim
                                 </label>
 
@@ -316,7 +316,7 @@ $databaseSchedules = $dataBase ?? [];
                             <div class="col-12">
                                 <div class="border rounded-3 p-3">
 
-                                    <div class="small fw-medium mb-3">
+                                    <div class="fw-medium mb-3">
                                         Pausa para almoço
                                     </div>
 
@@ -326,7 +326,7 @@ $databaseSchedules = $dataBase ?? [];
                                         <div class="col-12 col-md-6">
                                             <label
                                                 for="editScheduleLunchStart"
-                                                class="form-label small">
+                                                class="form-label">
                                                 Início
                                             </label>
 
@@ -341,7 +341,7 @@ $databaseSchedules = $dataBase ?? [];
                                         <div class="col-12 col-md-6">
                                             <label
                                                 for="editScheduleLunchEnd"
-                                                class="form-label small">
+                                                class="form-label">
                                                 Fim
                                             </label>
 

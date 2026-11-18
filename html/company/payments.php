@@ -389,14 +389,14 @@ $dataInput = [
 
                                                 <!-- Tipo -->
                                                 <td class="d-none d-xl-table-cell text-start">
-                                                    <span class="small">
+                                                    <span>
                                                         <?= htmlspecialchars($payment['payment_type']) ?>
                                                     </span>
                                                 </td>
 
                                                 <!-- Método -->
                                                 <td class="d-none d-xl-table-cell text-start">
-                                                    <span class="small">
+                                                    <span>
                                                         <?= $payment['payment_method']
                                                             ? htmlspecialchars($payment['payment_method'])
                                                             : '-' ?>
@@ -419,7 +419,7 @@ $dataInput = [
 
                                                 <!-- Data -->
                                                 <td class="d-none d-xl-table-cell text-start">
-                                                    <span class="small text-nowrap">
+                                                    <span class="text-nowrap">
                                                         <?php if ($payment['paid_at']): ?>
                                                             <?= date('d/m/Y H:i', strtotime($payment['paid_at'])) ?>
                                                         <?php else: ?>

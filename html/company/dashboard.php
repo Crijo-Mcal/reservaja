@@ -84,7 +84,7 @@ $roleLabels = [
                     <div class="col-12 col-sm-6 <?= $isOwner ? 'col-xl-3' : 'col-xl-4' ?>">
                         <div class="card cs-shadow border-0 h-100 cs-summary-today">
                             <div class="card-body p-3">
-                                <span class="small">Agendamentos de Hoje</span>
+                                <span>Agendamentos de Hoje</span>
                                 <h4 class="fw-medium mt-1 mb-1">
                                     <?= $summary['todayAppointment'] ?? 0 ?>
                                 </h4>
@@ -99,7 +99,7 @@ $roleLabels = [
                     <div class="col-12 col-sm-6 <?= $isOwner ? 'col-xl-3' : 'col-xl-4' ?>">
                         <div class="card cs-shadow border-0 h-100 cs-summary-light">
                             <div class="card-body p-3">
-                                <span class="small">Próximos Agendamentos</span>
+                                <span>Próximos Agendamentos</span>
                                 <h4 class="fw-medium mt-1 mb-1">
                                     <?= $summary['ScheduledAppointment'] ?? 0 ?>
                                 </h4>
@@ -115,7 +115,7 @@ $roleLabels = [
                         <div class="col-12 col-sm-6 col-xl-3">
                             <div class="card cs-shadow border-0 h-100 cs-summary-light">
                                 <div class="card-body p-3">
-                                    <span class="small">Receita</span>
+                                    <span>Receita</span>
                                     <h4 class="fw-medium mt-1 mb-1">
                                         €<?= number_format(
                                                 $summary['paymentsThisMonths'] ?? 0,
@@ -136,7 +136,7 @@ $roleLabels = [
                     <div class="col-12 col-sm-6 <?= $isOwner ? 'col-xl-3' : 'col-xl-4' ?>">
                         <div class="card cs-shadow border-0 h-100 cs-summary-light">
                             <div class="card-body p-3">
-                                <span class="small">Avaliações</span>
+                                <span>Avaliações</span>
                                 <h4 class="fw-medium mt-1 mb-1">
                                     <?= number_format(
                                         $summary['averageRatingAndCount']['average'] ?? 0,
@@ -205,10 +205,10 @@ $roleLabels = [
                                                         <?= htmlspecialchars($appointment['client_name']) ?>
                                                     </div>
 
-                                                    <small class="cs-text-2 fw-medium">
+                                                    <span class="cs-text-2 fw-medium">
                                                         <?= htmlspecialchars($appointment['service_name']) ?>
                                                         • <?= $date ?>
-                                                    </small>
+                                                    </span>
                                                 </div>
 
                                                 <span class="<?= $statusClass ?> small fw-medium">
@@ -299,7 +299,7 @@ $roleLabels = [
                                                 <div class="list-group-item px-4 py-3">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div>
-                                                            <div class="small fw-medium">
+                                                            <div class="fw-medium">
                                                                 <?= htmlspecialchars($service['service_name']) ?>
                                                             </div>
 
@@ -393,7 +393,7 @@ $roleLabels = [
                                                             </div>
 
                                                             <div>
-                                                                <div class="small fw-medium">
+                                                                <div class="fw-medium">
                                                                     <?= htmlspecialchars($name) ?>
                                                                 </div>
 

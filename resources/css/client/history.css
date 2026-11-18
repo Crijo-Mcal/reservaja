@@ -40,7 +40,7 @@ main {
 .history-item span {
     display: block;
     margin-bottom: 4px;
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 12px;
 }
 
@@ -68,7 +68,7 @@ main {
 }
 
 .history-id strong {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 12px;
     font-weight: 500;
 }
@@ -87,7 +87,7 @@ main {
 }
 
 .history-empty i {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 32px;
 }
 
@@ -99,7 +99,7 @@ main {
 
 .history-empty p {
     margin: 0;
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-size: 14px;
 }
 

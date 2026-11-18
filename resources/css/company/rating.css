@@ -47,7 +47,7 @@
 #professionalFilter {
     min-width: 220px;
     border-color: var(--bs-border-color);
-    font-size: 0.875rem;
+    font-size: var(--fs-base);
 }
 
 #professionalFilter:focus {
@@ -71,7 +71,7 @@
 .rating-list-header h5 {
     margin: 0;
     color: var(--color3);
-    font-size: 16px;
+    font-size: var(--fs-lg);
     font-weight: 600;
 }
 
@@ -84,7 +84,7 @@
     color: var(--color3);
     border: 1px solid var(--color3);
     border-radius: 8px;
-    font-size: 12px;
+    font-size: var(--fs-xs);
     font-weight: 600;
     white-space: nowrap;
 }
@@ -138,7 +138,7 @@
     height: 40px;
     color: var(--color-succsse-1);
     background: var(--color-succsse-2);
-    font-size: 15px;
+    font-size: var(--fs-base);
     font-weight: 700;
     letter-spacing: 0.4px;
     text-transform: uppercase;
@@ -147,14 +147,14 @@
 .rating-client-name {
     margin: 0;
     color: var(--color1);
-    font-size: 14px;
+    font-size: var(--fs-base);
     font-weight: 600;
     overflow-wrap: anywhere;
 }
 
 .rating-date {
-    color: var(--color4);
-    font-size: 12px;
+    color: var(--color-text-secondary);
+    font-size: var(--fs-xs);
 }
 
 /* Eliminar avaliação */
@@ -185,12 +185,12 @@
 /* Classificação */
 .rating-score-value {
     color: var(--color1);
-    font-size: 13px;
+    font-size: var(--fs-base);
     font-weight: 600;
 }
 
 .rating-score-value span {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-weight: 400;
 }
 
@@ -211,15 +211,15 @@
     color: var(--color1);
     background: #F1F5F9;
     border-radius: 999px;
-    font-size: 12px;
+    font-size: var(--fs-base);
     font-weight: 600;
     overflow-wrap: anywhere;
 }
 
 .rating-info-label {
     flex-shrink: 0;
-    color: var(--color4);
-    font-size: 11px;
+    color: var(--color-text-secondary);
+    font-size: var(--fs-xs);
     font-weight: 500;
     white-space: nowrap;
 }
@@ -233,13 +233,13 @@
 .rating-comment {
     margin: 10px 0 0;
     color: var(--color1);
-    font-size: 13px;
+    font-size: var(--fs-base);
     line-height: 1.6;
     overflow-wrap: anywhere;
 }
 
 .rating-comment-empty {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     font-style: italic;
 }
 
@@ -262,14 +262,14 @@
 .rating-empty h6 {
     margin-bottom: 7px;
     color: var(--color1);
-    font-size: 15px;
+    font-size: var(--fs-lg);
     font-weight: 600;
 }
 
 .rating-empty p {
     margin-bottom: 0;
-    color: var(--color4);
-    font-size: 13px;
+    color: var(--color-text-secondary);
+    font-size: var(--fs-base);
     line-height: 1.6;
 }
 
@@ -289,12 +289,12 @@
     }
 
     .rating-list-header h5 {
-        font-size: 15px;
+        font-size: var(--fs-lg);
     }
 
     .rating-list-count {
         padding: 5px 8px;
-        font-size: 11px;
+        font-size: var(--fs-xs);
     }
 
     .rating-item {
@@ -305,7 +305,7 @@
     .rating-client-avatar {
         width: 36px;
         height: 36px;
-        font-size: 13px;
+        font-size: var(--fs-base);
     }
 
     .rating-delete {

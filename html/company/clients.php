@@ -180,7 +180,7 @@ $tadaInput = ['search' => trim($_GET['client_name'] ?? '')];
                                                         <?= htmlspecialchars($client['client_name']) ?>
                                                     </div>
 
-                                                    <div class="small cs-text-2">
+                                                    <div class="cs-text-2">
                                                         <?= htmlspecialchars($client['client_email']) ?>
                                                     </div>
                                                 </div>
@@ -219,7 +219,7 @@ $tadaInput = ['search' => trim($_GET['client_name'] ?? '')];
                                                             <?= htmlspecialchars($client['client_name']) ?>
                                                         </h6>
 
-                                                        <span class="small cs-text-2">
+                                                        <span class="cs-text-2">
                                                             <?= htmlspecialchars($client['client_email']) ?>
                                                         </span>
                                                     </div>
@@ -237,7 +237,7 @@ $tadaInput = ['search' => trim($_GET['client_name'] ?? '')];
                                                                 Contacto
                                                             </span>
 
-                                                            <strong class="small">
+                                                            <strong>
                                                                 <?= htmlspecialchars($client['client_mobile']) ?>
                                                             </strong>
                                                         </div>
@@ -249,7 +249,7 @@ $tadaInput = ['search' => trim($_GET['client_name'] ?? '')];
                                                                 Último atendimento
                                                             </span>
 
-                                                            <strong class="small">
+                                                            <strong>
                                                                 <?= date('d/m/Y', strtotime($client['last_appointment'])) ?>
                                                             </strong>
                                                         </div>

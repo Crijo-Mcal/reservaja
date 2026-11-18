@@ -19,12 +19,12 @@ body {
 
 /* Campos do formulário */
 .cs-input::placeholder {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     opacity: 1;
 }
 
 .cs-input-date {
-    color: var(--color4);
+    color: var(--color-text-secondary);
 }
 
 .cs-input:focus,

@@ -320,13 +320,13 @@ unset($_SESSION['error']);
                                                 </td>
 
                                                 <td class="d-none d-md-table-cell text-start">
-                                                    <span class="small">
+                                                    <span>
                                                         <?= htmlspecialchars($appointment['service_duration']) ?> min
                                                     </span>
                                                 </td>
 
                                                 <td class="d-none d-xl-table-cell text-start">
-                                                    <span class="small text-nowrap">
+                                                    <span class="text-nowrap">
                                                         <?= date('d/m/Y', strtotime($appointment['appointment_date'])) ?>
                                                     </span>
                                                 </td>
@@ -525,7 +525,7 @@ unset($_SESSION['error']);
                                         </span>
 
                                         <span
-                                            class="small fw-medium text-break d-block"
+                                            class="fw-medium text-break d-block"
                                             id="modalClientEmail">
                                         </span>
                                     </div>

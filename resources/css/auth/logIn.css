@@ -6,7 +6,7 @@
 
 /* Campos do formulário */
 .cs-input::placeholder {
-    color: var(--color4);
+    color: var(--color-text-secondary);
     opacity: 1;
 }
 

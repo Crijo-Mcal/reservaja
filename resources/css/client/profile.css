@@ -21,7 +21,7 @@
 
 .form-control[readonly] {
     background: #f8fafc;
-    color: var(--color4);
+    color: var(--color-text-secondary);
 }
 
 .form-label {

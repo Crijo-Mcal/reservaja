@@ -11,7 +11,32 @@
     --color-warning-1: #D97706;
     --color-warning-2: #FEF3C7;
 
+
+    --color-text-secondary: #64748B;
+
     --font: "Inter", sans-serif;
+
+    /*
+     * Escala tipográfica (Ant Design, base 14px).
+     * Regras: nada abaixo de --fs-xs; informação importante >= --fs-base.
+     */
+    --fs-xs: 12px;
+    /* só informação complementar: badges, contadores, datas pequenas */
+    --fs-base: 14px;
+    /* texto principal, tabelas, labels, informação importante */
+    --fs-lg: 16px;
+    /* títulos de cartões, texto em destaque */
+    --fs-xl: 20px;
+    /* títulos de secção */
+    --fs-2xl: 24px;
+    /* títulos de página */
+    --fs-3xl: 30px;
+    /* destaque grande (hero) */
+    --fs-4xl: 38px;
+    /* título principal da landing page */
+
+    --lh-base: 1.5715;
+    /* 22px com 14px */
 }
 
 /* Base da página */
@@ -21,10 +46,46 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--font);
-    font-size: 14px;
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
     font-weight: 500;
     padding: 0;
     margin: 0;
+}
+
+/* Texto pequeno: o Bootstrap usa 0.875em (12,25px aqui); fixamos no mínimo da escala */
+small,
+.small {
+    font-size: var(--fs-xs);
+}
+
+/* Títulos alinhados com a escala (o Bootstrap usa tamanhos que variam com o ecrã) */
+h4,
+.h4 {
+    font-size: var(--fs-2xl);
+}
+
+h5,
+.h5 {
+    font-size: var(--fs-xl);
+}
+
+h6,
+.h6 {
+    font-size: var(--fs-lg);
+}
+
+/*
+ * Componentes do Bootstrap usam 1rem (16px); alinhamos com a base de 14px
+ * para que botões e campos tenham o mesmo tamanho que o resto do texto.
+ */
+.btn,
+.form-control,
+.form-select,
+.input-group-text,
+.dropdown-item,
+.form-label {
+    font-size: var(--fs-base);
 }
 
 /* Foco dos campos de formulário */
@@ -32,4 +93,19 @@ body {
 .form-select:focus {
     border-color: var(--color2);
     box-shadow: none;
+}
+
+/*
+ * Telemóvel: campos com menos de 16px fazem o Safari (iPhone) ampliar a página
+ * ao tocar no campo. Em ecrãs pequenos os campos ficam com 16px.
+ */
+@media (max-width: 767.98px) {
+
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+    select,
+    textarea,
+    .form-control,
+    .form-select {
+        font-size: 16px;
+    }
 }
