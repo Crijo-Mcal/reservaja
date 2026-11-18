@@ -50,7 +50,7 @@ $companyName = $company['name'] ?? 'Nome da Empresa';
                             </p>
 
                             <div class="d-flex flex-column flex-sm-row gap-2 cs-fadeIn-y4">
-                                <a href="#como-reservar" class="btn rj-btn rj-btn-lg">
+                                <a href="<?= $appBasePath ?? '' ?>/html/client/professionals.php" class="btn rj-btn rj-btn-lg">
                                     Fazer uma reserva
                                     <i class="bi bi-arrow-right"></i>
                                 </a>
@@ -175,7 +175,7 @@ $companyName = $company['name'] ?? 'Nome da Empresa';
                             <div class="rj-service-icon"><i class="bi bi-briefcase"></i></div>
                             <h3>Serviços disponíveis</h3>
                             <p>Consulte a lista de serviços e respetiva duração antes de avançar.</p>
-                            <a href="#como-reservar" class="rj-text-link">Consultar e reservar <i class="bi bi-arrow-right"></i></a>
+                            <a href="<?= $appBasePath ?? '' ?>/html/client/professionals.php" class="rj-text-link">Consultar e reservar <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -184,7 +184,7 @@ $companyName = $company['name'] ?? 'Nome da Empresa';
                             <div class="rj-service-icon"><i class="bi bi-person"></i></div>
                             <h3>Profissional</h3>
                             <p>Quando aplicável, escolha o profissional com quem pretende realizar o serviço.</p>
-                            <a href="#como-reservar" class="rj-text-link">Escolher profissional <i class="bi bi-arrow-right"></i></a>
+                            <a href="<?= $appBasePath ?? '' ?>/html/client/professionals.php" class="rj-text-link">Escolher profissional <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -193,7 +193,7 @@ $companyName = $company['name'] ?? 'Nome da Empresa';
                             <div class="rj-service-icon"><i class="bi bi-clock"></i></div>
                             <h3>Horário</h3>
                             <p>Veja os horários disponíveis e selecione uma opção adequada para si.</p>
-                            <a href="#como-reservar" class="rj-text-link">Ver disponibilidade <i class="bi bi-arrow-right"></i></a>
+                            <a href="<?= $appBasePath ?? '' ?>/html/client/professionals.php" class="rj-text-link">Ver disponibilidade <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -422,7 +422,7 @@ $companyName = $company['name'] ?? 'Nome da Empresa';
                             Escolha o serviço, encontre um horário disponível e faça
                             a sua reserva de forma simples.
                         </p>
-                        <a href="#como-reservar" class="btn rj-btn rj-btn-lg">
+                        <a href="<?= $appBasePath ?? '' ?>/html/client/professionals.php" class="btn rj-btn rj-btn-lg">
                             Fazer uma reserva
                             <i class="bi bi-arrow-right"></i>
                         </a>

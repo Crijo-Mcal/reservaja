@@ -237,7 +237,7 @@ $roleLabels = [
                     </div>
 
                     <!-- Estado dos pagamentos: apenas proprietário -->
-                    <?php if ($isOwner && !empty($doughnutValue['pago'])): ?>
+                    <?php if ($isOwner): ?>
                         <div class="col-12 col-xl-4">
                             <div class="card cs-shadow h-100 cs-fadeIn-x2">
                                 <div class="card-header py-3 px-4 cs-bg-primary cs-text-1">

@@ -9,7 +9,7 @@
             <div class="col-lg-5 col-md-6">
 
                 <a
-                    href="/reservaja/home"
+                    href="<?= $appBasePath ?? '' ?>/html/client/home.php"
                     class="text-decoration-none">
 
                     <div class="d-flex align-items-center mb-3">
@@ -38,9 +38,7 @@
 
                 <div class="d-flex flex-column gap-2">
 
-                    <a
-                        href="mailto:contacto@reservaja.pt"
-                        class="footer-link d-flex align-items-center gap-2">
+                    <div class="footer-contact d-flex align-items-center gap-2">
 
                         <i class="bi bi-envelope"></i>
 
@@ -48,11 +46,9 @@
                             contacto@reservaja.pt
                         </span>
 
-                    </a>
+                    </div>
 
-                    <a
-                        href="tel:+351912345678"
-                        class="footer-link d-flex align-items-center gap-2">
+                    <div class="footer-contact d-flex align-items-center gap-2">
 
                         <i class="bi bi-telephone"></i>
 
@@ -60,9 +56,9 @@
                             +351 912 345 678
                         </span>
 
-                    </a>
+                    </div>
 
-                    <div class="footer-link d-flex align-items-center gap-2">
+                    <div class="footer-contact d-flex align-items-center gap-2">
 
                         <i class="bi bi-geo-alt"></i>
 
@@ -139,5 +135,12 @@
 
     .footer-link:hover {
         color: var(--color2);
+    }
+
+    /* Contactos: apenas informativos, sem clique nem hover */
+    .footer-contact {
+        font-size: 14px;
+        color: rgba(255, 255, 255, .7);
+        cursor: default;
     }
 </style>
