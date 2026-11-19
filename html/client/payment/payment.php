@@ -280,7 +280,13 @@ $remainingAmount =
                                         <label
                                             for="client_email"
                                             class="form-label small fw-medium">
+
                                             E-mail
+
+                                            <span class="text-secondary fw-normal">
+                                                (introduza um e-mail válido)
+                                            </span>
+
                                         </label>
 
                                         <input
